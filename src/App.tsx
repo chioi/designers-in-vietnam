@@ -1,28 +1,51 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import logo from "./logo.svg";
 
-class App extends Component {
-  public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+interface IPeopleResponse {
+  content: IDesigner[];
 }
+
+interface IDesigner {
+  name: string;
+  location: string;
+  urls: {
+    personal: string;
+    social?: string;
+  };
+  picture: {
+    small: string;
+    large: string;
+  };
+  tags: string[];
+}
+
+interface IDesignersListProps {
+  designers: IDesigner[];
+}
+
+const designersURL = "http://localhost:5000/people/1";
+const fetchDesigners = () => fetch(designersURL);
+
+const DesignersList = (props: IDesignersListProps) => {
+  const designerWrappers = props.designers.map((designer: IDesigner) => (
+    <li key={designer.name}>{designer.name}</li>
+  ));
+  return <ul>{designerWrappers}</ul>;
+};
+
+const App = () => {
+  const [latestDesigners, saveDesigners] = useState([] as IDesigner[]);
+  useEffect(() => {
+    fetchDesigners()
+      .then((response: Response) => response.json())
+      .then((json: IPeopleResponse) => saveDesigners(json.content));
+  });
+
+  return (
+    <main className="App">
+      <DesignersList designers={latestDesigners} />
+    </main>
+  );
+};
 
 export default App;
