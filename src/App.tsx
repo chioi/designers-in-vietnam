@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-
-interface IPeopleResponse {
-  content: IDesigner[];
-}
+import firestore from "./firestore";
 
 interface IDesigner {
+  id?: string;
   name: string;
   location: string;
   urls: {
@@ -23,9 +21,6 @@ interface IDesignersListProps {
   designers: IDesigner[];
 }
 
-const designersURL = `${process.env.REACT_APP_DESIGNERS_API_URL}/people/1`;
-const fetchDesigners = () => fetch(designersURL);
-
 const DesignersList = (props: IDesignersListProps) => {
   const designerWrappers = props.designers.map((designer: IDesigner) => (
     <li key={designer.name}>{designer.name}</li>
@@ -42,18 +37,27 @@ const ConnectionError = () => (
 
 const App = () => {
   const [error, saveError] = useState(null);
-  const [latestDesigners, saveDesigners] = useState([] as IDesigner[]);
+  const [designers, saveDesigners] = useState([] as IDesigner[]);
+
   useEffect(() => {
-    fetchDesigners()
-      .then((response: Response) => response.json())
-      .then((json: IPeopleResponse) => saveDesigners(json.content))
+    firestore
+      .collection("people")
+      .get()
+      .then(querySnapshot => {
+        const latestDesigners = [] as IDesigner[];
+        querySnapshot.forEach(doc => {
+          latestDesigners.push({ id: doc.id, ...doc.data() } as IDesigner);
+        });
+        return latestDesigners;
+      })
+      .then(saveDesigners)
       .catch(saveError);
-  }, [latestDesigners]);
+  }, [designers]);
 
   return (
     <main className="App">
       {error && <ConnectionError />}
-      <DesignersList designers={latestDesigners} />
+      <DesignersList designers={designers} />
     </main>
   );
 };
