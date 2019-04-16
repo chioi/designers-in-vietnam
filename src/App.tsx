@@ -33,16 +33,26 @@ const DesignersList = (props: IDesignersListProps) => {
   return <ul>{designerWrappers}</ul>;
 };
 
+const ConnectionError = () => (
+  <div>
+    <p>Something went wrong :-(</p>
+    <p>Make sure you have internet connection</p>
+  </div>
+);
+
 const App = () => {
+  const [error, saveError] = useState(null);
   const [latestDesigners, saveDesigners] = useState([] as IDesigner[]);
   useEffect(() => {
     fetchDesigners()
       .then((response: Response) => response.json())
-      .then((json: IPeopleResponse) => saveDesigners(json.content));
-  });
+      .then((json: IPeopleResponse) => saveDesigners(json.content))
+      .catch(saveError);
+  }, [latestDesigners]);
 
   return (
     <main className="App">
+      {error && <ConnectionError />}
       <DesignersList designers={latestDesigners} />
     </main>
   );
