@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gets created matches the snapshot 1`] = `
+<div>
+  <p>
+    Something went wrong :-(
+  </p>
+  <p>
+    Make sure you have internet connection
+  </p>
+</div>
+`;

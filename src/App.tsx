@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import ConnectionError from './ConnectionError';
 import firestore from "./firestore";
 
 interface IDesigner {
@@ -27,13 +28,6 @@ const DesignersList = (props: IDesignersListProps) => {
   ));
   return <ul>{designerWrappers}</ul>;
 };
-
-const ConnectionError = () => (
-  <div>
-    <p>Something went wrong :-(</p>
-    <p>Make sure you have internet connection</p>
-  </div>
-);
 
 const App = () => {
   const [error, saveError] = useState(null);
