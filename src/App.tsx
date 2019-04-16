@@ -23,7 +23,7 @@ interface IDesignersListProps {
   designers: IDesigner[];
 }
 
-const designersURL = "http://localhost:5000/people/1";
+const designersURL = `${process.env.REACT_APP_DESIGNERS_API_URL}/people/1`;
 const fetchDesigners = () => fetch(designersURL);
 
 const DesignersList = (props: IDesignersListProps) => {
