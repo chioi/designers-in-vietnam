@@ -7,6 +7,8 @@ jobs:
     - stage: "lint"
       name: "lint"
       script: ./lint
+    - stage: "build"
+      script: "yarn build"
     - stage: deploy
       deploy:
         provider: pages
