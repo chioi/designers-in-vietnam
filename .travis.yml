@@ -7,9 +7,8 @@ jobs:
     - stage: "lint"
       name: "lint"
       script: ./lint
-    - stage: "build"
-      script: "yarn build"
     - stage: deploy
+      script: "yarn build"
       deploy:
         provider: pages
         skip_cleanup: true
