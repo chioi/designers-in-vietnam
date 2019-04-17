@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gets created with designers matches the snapshot 1`] = `
+<ul>
+  <li>
+    Mario Gil
+  </li>
+</ul>
+`;
+
+exports[`gets created without designers matches the snapshot 1`] = `<ul />`;

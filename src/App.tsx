@@ -1,33 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import ConnectionError from './ConnectionError';
+import ConnectionError from "./ConnectionError";
+import DesignersList, { IDesigner } from "./DesignersList";
 import firestore from "./firestore";
-
-interface IDesigner {
-  id?: string;
-  name: string;
-  location: string;
-  urls: {
-    personal: string;
-    social?: string;
-  };
-  picture: {
-    small: string;
-    large: string;
-  };
-  tags: string[];
-}
-
-interface IDesignersListProps {
-  designers: IDesigner[];
-}
-
-const DesignersList = (props: IDesignersListProps) => {
-  const designerWrappers = props.designers.map((designer: IDesigner) => (
-    <li key={designer.name}>{designer.name}</li>
-  ));
-  return <ul>{designerWrappers}</ul>;
-};
 
 const App = () => {
   const [error, saveError] = useState(null);
