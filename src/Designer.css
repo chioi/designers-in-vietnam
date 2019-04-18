@@ -1,0 +1,35 @@
+.designer {
+  max-width: 250px;
+}
+
+.designer-portrait {
+  width: 100%;
+}
+
+.designer-name {
+  text-align: left;
+  font-family: var(--font-headings);
+}
+
+.designer-title {
+  text-align: left;
+  color: var(--color-subtitle);
+  font-size: var(--font-regular);
+}
+
+.designer-bio {
+  text-align: left;
+  font-size: var(--font-medium);
+}
+
+.designer-link {
+  font-size: var(--font-medium);
+}
+
+.designer-link-separator {
+  margin: 0 var(--space-small);
+}
+
+.designer-info {
+  text-align: left;
+}

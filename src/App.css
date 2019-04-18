@@ -4,6 +4,15 @@
   --font-regular: 1rem;
   --space-small: 0.2rem;
   --space-medium: 0.4rem;
+  --color-subtitle: gray;
+  --font-headings: serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  margin: var(--space-medium) 0;
 }
 
 .App {
@@ -12,4 +21,15 @@
 
 .App ul {
   list-style: none;
+}
+
+.main-heading {
+  text-decoration: underline;
+}
+
+.horizontal-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }

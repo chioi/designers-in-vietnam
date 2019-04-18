@@ -1,19 +1,6 @@
 import React from "react";
-
-export interface IDesigner {
-  id?: string;
-  name: string;
-  location: string;
-  urls: {
-    personal: string;
-    social?: string;
-  };
-  picture: {
-    small: string;
-    large: string;
-  };
-  tags: string[];
-}
+import Designer, { IDesigner } from "./Designer";
+import "./Designer.css";
 
 interface IDesignersListProps {
   designers: IDesigner[];
@@ -21,9 +8,9 @@ interface IDesignersListProps {
 
 const DesignersList = (props: IDesignersListProps) => {
   const designerWrappers = props.designers.map((designer: IDesigner) => (
-    <li key={designer.name}>{designer.name}</li>
+    <Designer key={designer.name} designer={designer} />
   ));
-  return <ul>{designerWrappers}</ul>;
+  return <div className="horizontal-list">{designerWrappers}</div>;
 };
 
 export default DesignersList;

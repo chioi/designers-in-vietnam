@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import ConnectionError from "./ConnectionError";
-import DesignersList, { IDesigner } from "./DesignersList";
+import { IDesigner } from "./Designer";
+import DesignersList from "./DesignersList";
 import firestore from "./firestore";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
@@ -45,7 +46,7 @@ const App = () => {
   return (
     <main className="App">
       <header>
-        <h1>Designers in Vietnam</h1>
+        <h1 className="main-heading">Designers of Vietnam</h1>
       </header>
       <section>
         <TagsList tags={tags} />

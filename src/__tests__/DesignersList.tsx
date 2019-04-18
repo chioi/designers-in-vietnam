@@ -1,6 +1,7 @@
 import React from "react";
 import { create, ReactTestRenderer } from "react-test-renderer";
-import DesignersList, { IDesigner } from "../DesignersList";
+import { IDesigner } from "../Designer";
+import DesignersList from "../DesignersList";
 
 const designers: IDesigner[] = [
   {
@@ -8,9 +9,10 @@ const designers: IDesigner[] = [
     name: "Mario Gil",
     picture: { small: "", large: "" },
     tags: [],
+    title: "UX designer",
     urls: {
       personal: "www.google.com"
-    },
+    }
   }
 ];
 
@@ -39,7 +41,7 @@ describe("gets created", () => {
     });
 
     it(`has ${designers.length} list elements`, () => {
-      expect(component.root.findAllByType("li")).toHaveLength(1);
+      expect(component.root.findAllByProps({ designer: designers[0] })).toHaveLength(1);
     });
 
     it("matches the snapshot", () => {

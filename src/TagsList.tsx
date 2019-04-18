@@ -1,6 +1,5 @@
 import React from "react";
 import Tag, {ITag} from "./Tag";
-import "./TagsList.css";
 
 interface ITagsListProps {
   tags: ITag[];

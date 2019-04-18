@@ -14,13 +14,10 @@
 .tag {
   display: flex;
   position: relative;
-  font-size: var(--font-medium);
+  font-size: var(--font-regular);
   margin: 0 var(--space-small);
-  border: 1px solid transparent;
-  border-radius: 2px;
-  z-index: 2;
 }
 
 .tag--selected {
-  border: 1px solid;
+  text-decoration: line-through;
 }

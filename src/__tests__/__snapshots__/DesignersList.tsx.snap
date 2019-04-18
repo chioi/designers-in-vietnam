@@ -1,11 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`gets created with designers matches the snapshot 1`] = `
-<ul>
-  <li>
-    Mario Gil
-  </li>
-</ul>
+<div
+  className="horizontal-list"
+>
+  <article
+    className="designer"
+  >
+    <div>
+      <img
+        alt="Mario Gil's portrait"
+        className="designer-portrait"
+        src=""
+      />
+      <h2
+        className="designer-name"
+      >
+        Mario Gil
+      </h2>
+      <h3
+        className="designer-title"
+      >
+        UX designer
+      </h3>
+      <p
+        className="designer-bio"
+      />
+    </div>
+    <footer
+      className="designer-info"
+    >
+      <a
+        className="designer-link"
+      >
+        Site
+      </a>
+      <span
+        className="designer-link-separator"
+      >
+        •
+      </span>
+      <a
+        className="designer-link"
+      >
+        Contact
+      </a>
+    </footer>
+  </article>
+</div>
 `;
 
-exports[`gets created without designers matches the snapshot 1`] = `<ul />`;
+exports[`gets created without designers matches the snapshot 1`] = `
+<div
+  className="horizontal-list"
+/>
+`;
