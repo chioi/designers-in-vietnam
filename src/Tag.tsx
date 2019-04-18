@@ -1,4 +1,5 @@
 import React, {useCallback, useState} from 'react';
+import "./Tag.css";
 
 export interface ITag {
   id?: string;

@@ -1,0 +1,26 @@
+.tag input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.tag-content {
+  padding: var(--space-small);
+}
+
+.tag-content:hover {
+  cursor: pointer;
+}
+
+.tag {
+  display: flex;
+  position: relative;
+  font-size: var(--font-medium);
+  margin: 0 var(--space-small);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.tag--selected {
+  border: 1px solid;
+}
