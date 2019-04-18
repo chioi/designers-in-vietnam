@@ -3,7 +3,8 @@ import "./App.css";
 import ConnectionError from "./ConnectionError";
 import DesignersList, { IDesigner } from "./DesignersList";
 import firestore from "./firestore";
-import TagsList, { ITag } from "./TagsList";
+import { ITag } from "./Tag";
+import TagsList from "./TagsList";
 
 interface IFirestoreDocument {
   id?: string;
@@ -33,13 +34,13 @@ const App = () => {
     fetchFromFirestore<ITag>("tags")
       .then(saveTags)
       .catch(saveError);
-  }, [tags]);
+  }, []);
 
   useEffect(() => {
     fetchFromFirestore<IDesigner>("people")
       .then(saveDesigners)
       .catch(saveError);
-  }, [designers]);
+  }, []);
 
   return (
     <main className="App">
@@ -50,7 +51,7 @@ const App = () => {
         <TagsList tags={tags} />
       </section>
       <section>
-        {error && <ConnectionError />}
+        {error && designers === [] && <ConnectionError />}
         <DesignersList designers={designers} />
       </section>
     </main>
