@@ -1,11 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`gets created with tags matches the snapshot 1`] = `
-<ul>
-  <li>
-    UX
+<ul
+  className="horizontal-list"
+>
+  <li
+    className="tag "
+  >
+    <label
+      className="tag-content"
+      htmlFor="UX-input"
+      id="UX-tag"
+      onClick={[Function]}
+    >
+      <input
+        id="[object Object]-input"
+        type="checkbox"
+      />
+      UX
+    </label>
   </li>
 </ul>
 `;
 
-exports[`gets created without tags matches the snapshot 1`] = `<ul />`;
+exports[`gets created without tags matches the snapshot 1`] = `
+<ul
+  className="horizontal-list"
+/>
+`;

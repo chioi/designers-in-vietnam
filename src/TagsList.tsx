@@ -1,19 +1,14 @@
 import React from "react";
-
-export interface ITag {
-  id?: string;
-  name: string;
-}
+import Tag, {ITag} from "./Tag";
+import "./TagsList.css";
 
 interface ITagsListProps {
   tags: ITag[];
 }
 
 const TagsList = (props: ITagsListProps) => {
-  const tagWrappers = props.tags.map((tag: ITag) => (
-    <li key={tag.id}>{tag.name}</li>
-  ));
-  return <ul>{tagWrappers}</ul>;
+  const tagWrappers = props.tags.map(tag => <Tag key={tag.id} tag={tag} />);
+  return <ul className="horizontal-list">{tagWrappers}</ul>;
 };
 
 export default TagsList;
