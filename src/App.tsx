@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
@@ -30,6 +30,15 @@ const App = () => {
   const [error, saveError] = useState(null);
   const [designers, saveDesigners] = useState([] as IDesigner[]);
   const [tags, saveTags] = useState([] as ITag[]);
+  const [selectedTags, saveSelectedTags] = useState(new Map());
+  const selectTag = useCallback((tag: ITag) => {
+    if (selectedTags.has(tag.name)) {
+      selectedTags.delete(tag.name);
+    } else {
+      selectedTags.set(tag.name, tag);
+    }
+    saveSelectedTags(new Map(selectedTags));
+  }, []);
 
   useEffect(() => {
     fetchFromFirestore<ITag>("tags")
@@ -49,7 +58,11 @@ const App = () => {
         <h1 className="main-heading">Designers of Vietnam</h1>
       </header>
       <section>
-        <TagsList tags={tags} />
+        <TagsList
+          tags={tags}
+          selectTag={selectTag}
+          selectedTags={selectedTags}
+        />
       </section>
       <section>
         {error && designers === [] && <ConnectionError />}

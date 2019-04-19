@@ -1,6 +1,7 @@
 import React from "react";
 import { create, ReactTestRenderer } from "react-test-renderer";
-import TagsList, { ITag } from "../TagsList";
+import { ITag } from "../Tag";
+import TagsList from "../TagsList";
 
 const tags: ITag[] = [
   {
@@ -9,12 +10,16 @@ const tags: ITag[] = [
   }
 ];
 
+const selectTag = jest.fn();
+
 describe("gets created", () => {
   describe("without tags", () => {
     let component: ReactTestRenderer;
 
     beforeAll(() => {
-      component = create(<TagsList tags={[]} />);
+      component = create(
+        <TagsList tags={[]} selectedTags={new Map()} selectTag={selectTag} />
+      );
     });
 
     it("has no list elements", () => {
@@ -30,7 +35,9 @@ describe("gets created", () => {
     let component: ReactTestRenderer;
 
     beforeAll(() => {
-      component = create(<TagsList tags={tags} />);
+      component = create(
+        <TagsList tags={tags} selectedTags={new Map()} selectTag={selectTag} />
+      );
     });
 
     it("has no list elements", () => {

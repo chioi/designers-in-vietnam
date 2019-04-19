@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, { memo, useCallback } from "react";
 import "./Tag.css";
 
 export interface ITag {
@@ -8,16 +8,17 @@ export interface ITag {
 
 interface ITagProps {
   tag: ITag;
+  onClick: (tag: ITag) => void;
+  isSelected: boolean;
 }
 
 const Tag = (props: ITagProps) => {
-  const [selected, saveSelected] = useState(false);
   const onClick = useCallback(() => {
-    saveSelected(!selected);
-  }, [selected]);
+    props.onClick(props.tag);
+  }, []);
 
   return (
-    <li className={`tag ${selected ? "tag--selected" : ""}`}>
+    <li className={`tag ${props.isSelected ? "tag--selected" : ""}`}>
       <label
         id={`${props.tag.name}-tag`}
         htmlFor={`${props.tag.name}-input`}
@@ -31,4 +32,4 @@ const Tag = (props: ITagProps) => {
   );
 };
 
-export default Tag;
+export default memo(Tag);
