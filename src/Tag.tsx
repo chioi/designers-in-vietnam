@@ -13,32 +13,60 @@ interface ITagProps {
   isSelected: boolean;
 }
 
+const getBoundingRect = (id: string) => {
+  const boundingRect = document.getElementById(id);
+  let height = 100;
+  let width = 100;
+  if (boundingRect) {
+    boundingRect.getBoundingClientRect();
+    height = boundingRect.offsetHeight;
+    width = boundingRect.offsetWidth;
+  }
+
+  return { width, height };
+};
+
 const Tag = (props: ITagProps) => {
   const id = `${props.tag.name}-tag`;
   const ref = useRef(null);
-  useEffect(() => {
-    const height = 100;
-    const width = 100;
-    const optionsBackground = {
-      animation: "points",
-      color: "#F5A623",
-      duration: 0.1,
-      height: height - 16,
-      inkAmount: 3,
-      points: 4,
-      queue: true,
-      root: ref.current,
-      size: 16,
-      width: width - 8
-    };
+  const bs: any = useRef(null);
 
+  useEffect(() => {
+    const { width, height } = getBoundingRect(id);
     if (ref.current) {
-      const bs = new Brushstroke(optionsBackground);
-      if (props.isSelected) {
-        bs.draw();
-      } else {
-        bs.clear();
-      }
+      const optionsBackground = {
+        animation: "points",
+        color: "#F5A623",
+        duration: 0.1,
+        height,
+        inkAmount: 3,
+        padding: 8,
+        points: 4,
+        queue: true,
+        root: ref.current,
+        size: 10,
+        width
+      };
+
+      bs.current = new Brushstroke(optionsBackground);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!bs.current) {
+      bs.current = new Brushstroke();
+    }
+
+    if (props.isSelected) {
+      const { width, height } = getBoundingRect(id);
+      bs.current.clear();
+      bs.current.draw();
+      bs.current.draw({
+        animation: "points",
+        color: "#F5A623",
+        duration: 0.1,
+        points: [12, height / 2, width - 12, height / 2]
+      });
     }
   }, [props.isSelected]);
 
@@ -47,7 +75,7 @@ const Tag = (props: ITagProps) => {
   }, []);
 
   return (
-    <li ref={ref} className={`tag ${props.isSelected ? "tag--selected" : ""}`}>
+    <li ref={ref} className={`tag${props.isSelected ? " tag--selected" : ""}`}>
       <label
         id={id}
         htmlFor={`${props.tag.name}-input`}
