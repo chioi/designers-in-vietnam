@@ -5,6 +5,7 @@ import DesignersList from "../DesignersList";
 
 const designers: IDesigner[] = [
   {
+    bio: "Mexican Engineer",
     location: "Salamanca, Mexico",
     name: "Mario Gil",
     picture: { small: "", large: "" },
