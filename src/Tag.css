@@ -19,7 +19,8 @@
 .tag {
   display: flex;
   position: relative;
-  font-size: var(--font-regular);
+  font-size: var(--font-heading-base);
+  font-weight: 300;
   margin: 0 var(--space-small);
   z-index: 3;
 }

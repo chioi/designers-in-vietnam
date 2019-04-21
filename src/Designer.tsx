@@ -36,7 +36,7 @@ const Designer = (props: IDesignerProps) => {
       </div>
       <footer className="designer-info">
         <a className="designer-link">Site</a>
-        <span className="designer-link-separator">•</span>
+        <span className="designer-link-separator">|</span>
         <a className="designer-link">Contact</a>
       </footer>
     </article>
