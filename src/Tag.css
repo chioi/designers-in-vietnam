@@ -21,6 +21,7 @@
   display: flex;
   position: relative;
   font-size: var(--font-heading-medium);
+  font-weight: normal;
   margin: 0 var(--space-regular);
   z-index: 3;
 }
@@ -36,6 +37,7 @@
 
 .tag--selected {
   color: var(--color-primary);
+  font-weight: bold;
 }
 
 .tag--selected canvas {
