@@ -6,15 +6,15 @@ exports[`gets created gets clicked matches the snapshot 1`] = `
 >
   <label
     className="tag-content"
-    htmlFor="ux-input"
-    id="ux-tag"
+    htmlFor="UX-input"
+    id="UX-tag"
     onClick={[Function]}
   >
     <input
       id="[object Object]-input"
       type="checkbox"
     />
-    ux
+    UX
   </label>
 </li>
 `;
@@ -25,15 +25,15 @@ exports[`gets created matches the snapshot 1`] = `
 >
   <label
     className="tag-content"
-    htmlFor="ux-input"
-    id="ux-tag"
+    htmlFor="UX-input"
+    id="UX-tag"
     onClick={[Function]}
   >
     <input
       id="[object Object]-input"
       type="checkbox"
     />
-    ux
+    UX
   </label>
 </li>
 `;

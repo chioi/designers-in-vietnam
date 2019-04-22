@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, {FC, useCallback, useEffect, useState} from "react";
 import "./App.css";
-import Stroke from './assets/long-stroke.svg';
+import Stroke from "./assets/long-stroke.svg";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
@@ -10,6 +10,11 @@ import TagsList from "./TagsList";
 
 interface IFirestoreDocument {
   id?: string;
+}
+
+interface IAppProps {
+  initialDesigners?: IDesigner[];
+  initialTags?: ITag[];
 }
 
 const fetchFromFirestore = <T extends IFirestoreDocument>(
@@ -27,10 +32,10 @@ const fetchFromFirestore = <T extends IFirestoreDocument>(
     });
 };
 
-const App = () => {
+const App:FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
   const [error, saveError] = useState(null);
-  const [designers, saveDesigners] = useState([] as IDesigner[]);
-  const [tags, saveTags] = useState([] as ITag[]);
+  const [designers, saveDesigners] = useState(initialDesigners);
+  const [tags, saveTags] = useState(initialTags);
   const [selectedTags, saveSelectedTags] = useState(new Map());
   const selectTag = useCallback((tag: ITag) => {
     if (selectedTags.has(tag.name)) {

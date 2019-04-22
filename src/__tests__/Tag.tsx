@@ -1,11 +1,7 @@
 import React from "react";
 import { act, create, ReactTestRenderer } from "react-test-renderer";
 import Tag from "../Tag";
-
-const tag = {
-  id: "hs3l233",
-  name: "ux"
-};
+import {tag} from "../testData/tags";
 
 const onClick = jest.fn();
 

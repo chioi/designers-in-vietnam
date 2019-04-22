@@ -49,6 +49,51 @@ exports[`gets created with designers matches the snapshot 1`] = `
       </a>
     </footer>
   </article>
+  <article
+    className="designer"
+  >
+    <div>
+      <img
+        alt="Chankrisna Visna's portrait"
+        className="designer-portrait"
+        src=""
+      />
+      <h2
+        className="designer-name"
+      >
+        Chankrisna Visna
+      </h2>
+      <h3
+        className="designer-title"
+      >
+        Chatbot Script Designer
+      </h3>
+      <p
+        className="designer-bio"
+      >
+        I decide what the internet robots speak like
+      </p>
+    </div>
+    <footer
+      className="designer-info"
+    >
+      <a
+        className="designer-link"
+      >
+        Site
+      </a>
+      <span
+        className="designer-link-separator"
+      >
+        |
+      </span>
+      <a
+        className="designer-link"
+      >
+        Contact
+      </a>
+    </footer>
+  </article>
 </div>
 `;
 

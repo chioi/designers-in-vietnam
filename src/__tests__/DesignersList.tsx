@@ -1,21 +1,7 @@
 import React from "react";
 import { create, ReactTestRenderer } from "react-test-renderer";
-import { IDesigner } from "../Designer";
 import DesignersList from "../DesignersList";
-
-const designers: IDesigner[] = [
-  {
-    bio: "Mexican Engineer",
-    location: "Salamanca, Mexico",
-    name: "Mario Gil",
-    picture: { small: "", large: "" },
-    tags: [],
-    title: "UX designer",
-    urls: {
-      personal: "www.google.com"
-    }
-  }
-];
+import {designers} from "../testData/designers";
 
 describe("gets created", () => {
   describe("without designers", () => {
@@ -48,5 +34,6 @@ describe("gets created", () => {
     it("matches the snapshot", () => {
       expect(component).toMatchSnapshot();
     });
+
   });
 });

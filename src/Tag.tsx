@@ -7,7 +7,7 @@ export interface ITag {
   name: string;
 }
 
-interface ITagProps {
+export interface ITagProps {
   tag: ITag;
   onClick: (tag: ITag) => void;
   isSelected: boolean;
