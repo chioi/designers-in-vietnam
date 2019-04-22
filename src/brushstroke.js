@@ -1,6 +1,6 @@
 // tslint:disable
+// eslint-disable no-console
 const brushstroke = () => {
-
   /**
    * Curve calc function for canvas 2.3.4 - (c) Epistemex 2013-2016 - www.epistemex.com - MIT License
    */
@@ -18,18 +18,15 @@ const brushstroke = () => {
    * @returns {Float32Array} New array with the calculated points that was added to the path
    */
   function getCurvePoints(points, tension, numOfSeg, close) {
-
-    'use strict';
-
     // options or defaults
-    tension = (typeof tension === 'number') ? tension : 0.5;
-    numOfSeg = (typeof numOfSeg === 'number') ? numOfSeg : 25;
+    tension = typeof tension === "number" ? tension : 0.5;
+    numOfSeg = typeof numOfSeg === "number" ? numOfSeg : 25;
 
-    let pts,															// for cloning point array
+    let pts, // for cloning point array
       i = 1,
       l = points.length,
       rPos = 0,
-      rLen = (l-2) * numOfSeg + 2 + (close ? 2 * numOfSeg: 0),
+      rLen = (l - 2) * numOfSeg + 2 + (close ? 2 * numOfSeg : 0),
       res = new Float32Array(rLen),
       cache = new Float32Array((numOfSeg + 2) * 4),
       cachePtr = 4;
@@ -37,64 +34,68 @@ const brushstroke = () => {
     pts = points.slice(0);
 
     if (close) {
-      pts.unshift(points[l - 1]);										// insert end point as first point
+      pts.unshift(points[l - 1]); // insert end point as first point
       pts.unshift(points[l - 2]);
-      pts.push(points[0], points[1]); 								// first point as last point
-    }
-    else {
-      pts.unshift(points[1]);											// copy 1. point and insert at beginning
+      pts.push(points[0], points[1]); // first point as last point
+    } else {
+      pts.unshift(points[1]); // copy 1. point and insert at beginning
       pts.unshift(points[0]);
-      pts.push(points[l - 2], points[l - 1]);							// duplicate end-points
+      pts.push(points[l - 2], points[l - 1]); // duplicate end-points
     }
 
     // cache inner-loop calculations as they are based on t alone
-    cache[0] = 1;														// 1,0,0,0
+    cache[0] = 1; // 1,0,0,0
 
     for (; i < numOfSeg; i++) {
-
       let st = i / numOfSeg,
         st2 = st * st,
         st3 = st2 * st,
         st23 = st3 * 2,
         st32 = st2 * 3;
 
-      cache[cachePtr++] =	st23 - st32 + 1;							// c1
-      cache[cachePtr++] =	st32 - st23;								// c2
-      cache[cachePtr++] =	st3 - 2 * st2 + st;							// c3
-      cache[cachePtr++] =	st3 - st2;									// c4
+      cache[cachePtr++] = st23 - st32 + 1; // c1
+      cache[cachePtr++] = st32 - st23; // c2
+      cache[cachePtr++] = st3 - 2 * st2 + st; // c3
+      cache[cachePtr++] = st3 - st2; // c4
     }
 
-    cache[++cachePtr] = 1;												// 0,1,0,0
+    cache[++cachePtr] = 1; // 0,1,0,0
 
     // calc. points
     parse(pts, cache, l, tension);
 
     if (close) {
       pts = [];
-      pts.push(points[l - 4], points[l - 3],
-        points[l - 2], points[l - 1], 							// second last and last
-        points[0], points[1],
-        points[2], points[3]); 								// first and second
+      pts.push(
+        points[l - 4],
+        points[l - 3],
+        points[l - 2],
+        points[l - 1], // second last and last
+        points[0],
+        points[1],
+        points[2],
+        points[3]
+      ); // first and second
       parse(pts, cache, 4, tension);
     }
 
     function parse(pts, cache, l, tension) {
-
       for (let i = 2, t; i < l; i += 2) {
-
         let pt1 = pts[i],
-          pt2 = pts[i+1],
-          pt3 = pts[i+2],
-          pt4 = pts[i+3],
-
-          t1x = (pt3 - pts[i-2]) * tension,
-          t1y = (pt4 - pts[i-1]) * tension,
-          t2x = (pts[i+4] - pt1) * tension,
-          t2y = (pts[i+5] - pt2) * tension,
-          c = 0, c1, c2, c3, c4;
+          pt2 = pts[i + 1],
+          pt3 = pts[i + 2],
+          pt4 = pts[i + 3],
+          t1x = (pt3 - pts[i - 2]) * tension,
+          t1y = (pt4 - pts[i - 1]) * tension,
+          t2x = (pts[i + 4] - pt1) * tension,
+          t2y = (pts[i + 5] - pt2) * tension,
+          c = 0,
+          c1,
+          c2,
+          c3,
+          c4;
 
         for (t = 0; t < numOfSeg; t++) {
-
           c1 = cache[c++];
           c2 = cache[c++];
           c3 = cache[c++];
@@ -114,13 +115,11 @@ const brushstroke = () => {
     return res;
   }
 
-
   /**
    * Brush by Akimitsu Hamamuro (http://codepen.io/akm2/pen/BonIh) - MIT License
    */
 
   let Brush = (function() {
-
     /**
      * @constructor
      * @public
@@ -142,18 +141,18 @@ const brushstroke = () => {
     Brush.prototype = {
       _SPLASHING_BRUSH_SPEED: 75,
 
-      angle:      0,
-      x:          0,
-      y:          0,
-      color:      '#000',
-      size:       35,
-      inkAmount:  7,
-      splashing:  true,
-      dripping:   true,
-      maxHairs:   1000,
+      angle: 0,
+      x: 0,
+      y: 0,
+      color: "#000",
+      size: 35,
+      inkAmount: 7,
+      splashing: true,
+      dripping: true,
+      maxHairs: 1000,
       _latestPos: null,
-      _strokeId:  null,
-      _drops:     null,
+      _strokeId: null,
+      _drops: null,
 
       isStroke: function() {
         return Boolean(this._strokeId);
@@ -165,12 +164,16 @@ const brushstroke = () => {
         this._resetTip();
 
         // http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
-        this._strokeId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-          let r, v;
-          r = Math.random() * 16 | 0;
-          v = c === 'x' ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
-        });
+        this._strokeId = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+          /[xy]/g,
+          function(c) {
+            let r, v;
+            r = (Math.random() * 16) | 0;
+            // eslint-disable-next-line
+            v = c === "x" ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+          }
+        );
       },
 
       endStroke: function() {
@@ -179,8 +182,10 @@ const brushstroke = () => {
 
       render: function(ctx, x, y) {
         let isStroke = this.isStroke(),
-          dx, dy,
-          i, len;
+          dx,
+          dy,
+          i,
+          len;
 
         if (!this._latestPos) this._latestPos = {};
         this._latestPos.x = this.x;
@@ -189,7 +194,7 @@ const brushstroke = () => {
         this.y = y;
 
         if (this._drops.length) {
-          let drops  = this._drops,
+          let drops = this._drops,
             drop,
             sizeSq = this.size * this.size;
 
@@ -200,7 +205,9 @@ const brushstroke = () => {
             dy = this.y - drop.y;
 
             if (
-              (isStroke && sizeSq > dx * dx + dy * dy && this._strokeId !== drop.strokeId) ||
+              (isStroke &&
+                sizeSq > dx * dx + dy * dy &&
+                this._strokeId !== drop.strokeId) ||
               drop.life <= 0
             ) {
               drops.splice(i, 1);
@@ -215,6 +222,7 @@ const brushstroke = () => {
 
         if (isStroke) {
           let tip = this._tip,
+            // eslint-disable-next-line
             strokeId = this._strokeId,
             dist;
 
@@ -223,13 +231,17 @@ const brushstroke = () => {
           dist = Math.sqrt(dx * dx + dy * dy);
 
           if (this.splashing && dist > this._SPLASHING_BRUSH_SPEED) {
-            let maxNum = (dist - this._SPLASHING_BRUSH_SPEED) * 0.5 | 0,
-              r, a, sr, sx, sy;
+            let maxNum = ((dist - this._SPLASHING_BRUSH_SPEED) * 0.5) | 0,
+              r,
+              a,
+              sr,
+              sx,
+              sy;
 
             ctx.save();
             ctx.fillStyle = this.color;
             ctx.beginPath();
-            for (i = 0, len = maxNum * Math.random() | 0; i < len; i++) {
+            for (i = 0, len = (maxNum * Math.random()) | 0; i < len; i++) {
               r = (dist - 1) * Math.random() + 1;
               a = Math.PI * 2 * Math.random();
               sr = 5 * Math.random();
@@ -240,15 +252,22 @@ const brushstroke = () => {
             }
             ctx.fill();
             ctx.restore();
-
-          } else if (this.dripping && dist < this.inkAmount * 2 && Math.random() < 0.05) {
-            this._drops.push(new Drop(
-              this.x,
-              this.y,
-              (this.size + this.inkAmount) * 0.5 * ((0.25 - 0.1) * Math.random() + 0.1),
-              this.color,
-              this._strokeId
-            ));
+          } else if (
+            this.dripping &&
+            dist < this.inkAmount * 2 &&
+            Math.random() < 0.05
+          ) {
+            this._drops.push(
+              new Drop(
+                this.x,
+                this.y,
+                (this.size + this.inkAmount) *
+                  0.5 *
+                  ((0.25 - 0.1) * Math.random() + 0.1),
+                this.color,
+                this._strokeId
+              )
+            );
           }
 
           for (i = 0, len = tip.length; i < len; i++) {
@@ -262,14 +281,22 @@ const brushstroke = () => {
       },
 
       _resetTip: function() {
-        let tip = this._tip = [],
+        let tip = (this._tip = []),
           rad = this.size * 0.5,
-          x0, y0, a0, x1, y1, a1, cv, sv,
-          i, len;
+          x0,
+          y0,
+          a0,
+          x1,
+          y1,
+          a1,
+          cv,
+          sv,
+          i,
+          len;
 
         //a1  = Math.PI * 2 * Math.random();
-        a1  = this.angle;
-        len = rad * rad * Math.PI / this.inkAmount | 0;
+        a1 = this.angle;
+        len = ((rad * rad * Math.PI) / this.inkAmount) | 0;
         if (len < 1) len = 1;
         if (len > this.maxHairs) len = this.maxHairs;
 
@@ -282,16 +309,17 @@ const brushstroke = () => {
           cv = Math.cos(a1);
           sv = Math.sin(a1);
 
-          tip.push(new Hair(
-            this.x + x1 * cv - y1 * sv,
-            this.y + x1 * sv + y1 * cv,
-            this.inkAmount,
-            this.color
-          ));
+          tip.push(
+            new Hair(
+              this.x + x1 * cv - y1 * sv,
+              this.y + x1 * sv + y1 * cv,
+              this.inkAmount,
+              this.color
+            )
+          );
         }
       }
     };
-
 
     /**
      * Hair
@@ -307,10 +335,10 @@ const brushstroke = () => {
     }
 
     Hair.prototype = {
-      x:          0,
-      y:          0,
-      inkAmount:  7,
-      color:      '#000',
+      x: 0,
+      y: 0,
+      inkAmount: 7,
+      color: "#000",
       _latestPos: null,
 
       render: function(ctx, offsetX, offsetY, offsetLength) {
@@ -320,11 +348,11 @@ const brushstroke = () => {
         this.y += offsetY;
 
         let per = offsetLength ? this.inkAmount / offsetLength : 0;
-        if      (per > 1) per = 1;
+        if (per > 1) per = 1;
         else if (per < 0) per = 0;
 
         ctx.save();
-        ctx.lineCap = ctx.lineJoin = 'round';
+        ctx.lineCap = ctx.lineJoin = "round";
         ctx.strokeStyle = this.color;
         ctx.lineWidth = this.inkAmount * per;
         ctx.beginPath();
@@ -334,7 +362,6 @@ const brushstroke = () => {
         ctx.restore();
       }
     };
-
 
     /**
      * Drop
@@ -352,12 +379,12 @@ const brushstroke = () => {
     }
 
     Drop.prototype = {
-      x:          0,
-      y:          0,
-      size:       7,
-      color:      '#000',
-      strokeId:   null,
-      life:       0,
+      x: 0,
+      y: 0,
+      size: 7,
+      color: "#000",
+      strokeId: null,
+      life: 0,
       _latestPos: null,
       _xOffRatio: 0,
 
@@ -371,12 +398,12 @@ const brushstroke = () => {
         this._latestPos.x = this.x;
         this._latestPos.y = this.y;
         this.x += this.life * this._xOffRatio;
-        this.y += (this.life * 0.5) * Math.random();
+        this.y += this.life * 0.5 * Math.random();
 
         this.life -= (0.05 - 0.01) * Math.random() + 0.01;
 
         ctx.save();
-        ctx.lineCap = ctx.lineJoin = 'round';
+        ctx.lineCap = ctx.lineJoin = "round";
         ctx.strokeStyle = this.color;
         ctx.lineWidth = this.size + this.life * 0.3;
         ctx.beginPath();
@@ -389,23 +416,31 @@ const brushstroke = () => {
     };
 
     return Brush;
-
   })();
-
 
   /********************
    * Brushstroke utils
    ********************/
 
-    // Type of elements, most from anime.js
+  // Type of elements, most from anime.js
 
   let is = {
-      obj: function(a) { return Object.prototype.toString.call(a).indexOf('Object') > -1 },
-      num: function(a) { return typeof a === 'number' },
-      str: function(a) { return typeof a === 'string' },
-      fnc: function(a) { return typeof a === 'function' },
-      und: function(a) { return typeof a === 'undefined' }
-    };
+    obj: function(a) {
+      return Object.prototype.toString.call(a).indexOf("Object") > -1;
+    },
+    num: function(a) {
+      return typeof a === "number";
+    },
+    str: function(a) {
+      return typeof a === "string";
+    },
+    fnc: function(a) {
+      return typeof a === "function";
+    },
+    und: function(a) {
+      return typeof a === "undefined";
+    }
+  };
 
   // Functions
 
@@ -416,8 +451,7 @@ const brushstroke = () => {
   // Objects
 
   function extendSingle(target, source) {
-    for (let key in source)
-      target[key] = source[key];
+    for (let key in source) target[key] = source[key];
     return target;
   }
 
@@ -430,63 +464,68 @@ const brushstroke = () => {
 
   // Styles
 
-  function validProperty(property, value) {
-    try {
-      return !is.und(value) &&
-        !is.obj(value) &&
-        !is.fnc(value) &&
-        value.length > 0 &&
-        value != parseInt(value) &&
-        property != parseInt(property);
-    } catch (e) {
-      return false;
-    }
-  }
+  // This is only used in the part that uses Rasterize and that part is
+  // commented out but I'm not sure if we're gonna need it in some situation
 
-  function setStyle(el) {
-    let computedStyle = getComputedStyle(el);
-    let style = '';
-    for (let property in computedStyle) {
-      if (validProperty(property, computedStyle[property])) {
-        style += property + ':' + computedStyle[property] + ';';
-      }
-    }
-    el.style.cssText += style + ';visibility:visible;';
-  }
+  // function validProperty(property, value) {
+  //   try {
+  //     return (
+  //       !is.und(value) &&
+  //       !is.obj(value) &&
+  //       !is.fnc(value) &&
+  //       value.length > 0 &&
+  //       // Manually replaced the != for !== in the next two lines
+  //       value !== parseInt(value) &&
+  //       property !== parseInt(property)
+  //     );
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // }
 
-  function setStyleAll(el, list) {
-    let children = el.children;
-    for (let i = 0; i < children.length; i++)
-      setStyleAll(children[i], list);
-    list.push({el: el, style: el.style.cssText});
-    setStyle(el);
-  }
+  // function setStyle(el) {
+  //   let computedStyle = getComputedStyle(el);
+  //   let style = "";
+  //   for (let property in computedStyle) {
+  //     if (validProperty(property, computedStyle[property])) {
+  //       style += property + ":" + computedStyle[property] + ";";
+  //     }
+  //   }
+  //   el.style.cssText += style + ";visibility:visible;";
+  // }
 
-  function restoreStyleAll(list) {
-    let current;
-    for (let i = 0; i < list.length; i++) {
-      current = list[i];
-      if (current.style) {
-        current.el.style.cssText = current.style;
-      } else {
-        current.el.removeAttribute('style');
-      }
-    }
-  }
+  // function setStyleAll(el, list) {
+  //   let children = el.children;
+  //   for (let i = 0; i < children.length; i++) setStyleAll(children[i], list);
+  //   list.push({ el: el, style: el.style.cssText });
+  //   setStyle(el);
+  // }
 
-  function getOuterHTML(el) {
-    let list = [];
-    setStyleAll(el, list);
-    let html = el.outerHTML;
-    restoreStyleAll(list);
-    return html;
-  }
+  // function restoreStyleAll(list) {
+  //   let current;
+  //   for (let i = 0; i < list.length; i++) {
+  //     current = list[i];
+  //     if (current.style) {
+  //       current.el.style.cssText = current.style;
+  //     } else {
+  //       current.el.removeAttribute("style");
+  //     }
+  //   }
+  // }
+
+  // function getOuterHTML(el) {
+  //   let list = [];
+  //   setStyleAll(el, list);
+  //   let html = el.outerHTML;
+  //   restoreStyleAll(list);
+  //   return html;
+  // }
 
   function fixRootPosition(root) {
     let style = getComputedStyle(root);
-    let position = style.getPropertyValue('position');
-    if (position === 'static') {
-      root.style.position = 'relative';
+    let position = style.getPropertyValue("position");
+    if (position === "static") {
+      root.style.position = "relative";
     }
   }
 
@@ -500,15 +539,18 @@ const brushstroke = () => {
   // Promises
 
   function deferred() {
-    return new function () {
+    // eslint-disable-next-line
+    return new (function() {
       this.resolve = null;
       this.reject = null;
 
-      this.promise = new Promise(function (resolve, reject) {
-        this.resolve = resolve;
-        this.reject = reject;
-      }.bind(this));
-    };
+      this.promise = new Promise(
+        function(resolve, reject) {
+          this.resolve = resolve;
+          this.reject = reject;
+        }.bind(this)
+      );
+    })();
   }
 
   // Get random points in a 2d space
@@ -528,7 +570,7 @@ const brushstroke = () => {
   // Canvas
 
   function resizeImage(img, o) {
-    let canvas = document.createElement('canvas');
+    let canvas = document.createElement("canvas");
     canvas.width = o.width;
     canvas.height = o.height;
     let ctx = canvas.getContext("2d");
@@ -550,37 +592,35 @@ const brushstroke = () => {
       o.height = o.el.offsetHeight;
       setPosition(o);
     }
-    let canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
-    canvas.style.top = o.top + 'px';
-    canvas.style.left = o.left + 'px';
+    let canvas = document.createElement("canvas");
+    canvas.style.position = "absolute";
+    canvas.style.top = o.top + "px";
+    canvas.style.left = o.left + "px";
     canvas.width = o.width;
     canvas.height = o.height;
-    canvas.style.visibility = 'hidden';
+    canvas.style.visibility = "hidden";
     o.canvas = canvas;
-    o.ctx = canvas.getContext('2d');
+    o.ctx = canvas.getContext("2d");
     fixRootPosition(o.root);
     o.root.appendChild(o.canvas);
   }
-
 
   /**************
    * Brushstroke
    **************/
 
   function Brushstroke(options) {
-
     // Default values
 
     this.defaults = {
-      animation: 'to-bottom',
+      animation: "to-bottom",
       path: undefined,
       points: undefined,
       frameAnimation: false,
       frames: 0,
       duration: 0,
       delay: 0,
-      color: '#ccc',
+      color: "#ccc",
       width: 300,
       height: 120,
       size: 40,
@@ -595,7 +635,7 @@ const brushstroke = () => {
       root: document.body,
       el: undefined,
       image: undefined,
-      repeat: 'no-repeat',
+      repeat: "no-repeat",
       stretch: false,
       centered: false,
       queue: false
@@ -605,8 +645,7 @@ const brushstroke = () => {
   }
 
   Brushstroke.prototype = {
-
-    init: function (options) {
+    init: function(options) {
       let o = extend(this.defaults, options);
       if (is.str(o.root)) o.root = document.querySelector(o.root);
       if (is.str(o.el)) o.el = document.querySelector(o.el);
@@ -617,11 +656,11 @@ const brushstroke = () => {
       d.resolve();
     },
 
-    run: function (options) {
+    run: function(options) {
       let that = this;
 
       function start() {
-        options.canvas.style.visibility = 'visible';
+        options.canvas.style.visibility = "visible";
         if (options.render) {
           that.render(options);
         } else {
@@ -654,7 +693,8 @@ const brushstroke = () => {
       } else if (options.image) {
         let img = new Image();
         img.onload = function() {
-          if (options.stretch || options.centered) img = resizeImage(img, options);
+          if (options.stretch || options.centered)
+            img = resizeImage(img, options);
           if (options.fill) {
             options.ctx.drawImage(img, 0, 0, options.width, options.height);
             options.d.resolve();
@@ -669,12 +709,12 @@ const brushstroke = () => {
       }
     },
 
-    draw: function (options) {
+    draw: function(options) {
       let that = this;
       let o = extend({}, this.defaults, options);
-      let _draw = function () {
+      let _draw = function() {
         let d = deferred();
-        that.run(extend(o, {d: d}));
+        that.run(extend(o, { d: d }));
         return d.promise;
       };
       if (o.queue) {
@@ -684,68 +724,75 @@ const brushstroke = () => {
       }
     },
 
-    erase: function (options) {
-      this.draw(extend({}, options, {erase: true}));
+    erase: function(options) {
+      this.draw(extend({}, options, { erase: true }));
     },
 
-    fill: function (options) {
-      this.draw(extend({}, options, {fill: true}));
+    fill: function(options) {
+      this.draw(extend({}, options, { fill: true }));
     },
 
-    clear: function (options) {
-      this.draw(extend({}, options, {clear: true}));
+    clear: function(options) {
+      this.draw(extend({}, options, { clear: true }));
     },
 
-    setPath: function (o) {
+    setPath: function(o) {
       let path = o.path;
       if (is.str(path)) {
-        path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', o.path);
+        path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", o.path);
         o.path = path;
       }
       o.pathLenght = path.getTotalLength();
     },
 
-    pointAt: function (t, o) {
+    pointAt: function(t, o) {
       switch (o.animation) {
-        case 'points':
+        case "points":
           let points = o.points;
           let length = points.length;
           let i = Math.round((length * t) / 2) * 2;
           if (i >= length) i = length - 2;
-          return {x: points[i], y: points[i + 1]};
-        case 'path':
+          return { x: points[i], y: points[i + 1] };
+        case "path":
           return o.path.getPointAtLength(o.pathLenght * t);
         default:
           return null;
       }
     },
 
-    setPos: function (o, pos) {
+    setPos: function(o, pos) {
       let first = !pos;
       if (first) pos = {};
       switch (o.direction) {
-        case 'bottom':
+        case "bottom":
           pos.startY = first ? o.padding : pos.startY + o.size - o.overlap;
           this.setPosBottomTop(o, pos, first);
           break;
-        case 'top':
-          pos.startY = first ? o.height - o.padding : pos.startY - o.size + o.overlap;
+        case "top":
+          pos.startY = first
+            ? o.height - o.padding
+            : pos.startY - o.size + o.overlap;
           this.setPosBottomTop(o, pos, first);
           break;
-        case 'right':
+        case "right":
           pos.startX = first ? o.padding : pos.startX + o.size - o.overlap;
           this.setPosRightLeft(o, pos, first);
           break;
-        case 'left':
-          pos.startX = first ? o.width - o.padding : pos.startX - o.size + o.overlap;
+        case "left":
+          pos.startX = first
+            ? o.width - o.padding
+            : pos.startX - o.size + o.overlap;
           this.setPosRightLeft(o, pos, first);
+          break;
+        default:
+          // Just put something to avoid the warning
           break;
       }
       return pos;
     },
 
-    setPosBottomTop: function (o, pos, first) {
+    setPosBottomTop: function(o, pos, first) {
       let aux;
       if (first) {
         pos.vertical = true;
@@ -757,7 +804,7 @@ const brushstroke = () => {
       pos.y = pos.startY;
     },
 
-    setPosRightLeft: function (o, pos, first) {
+    setPosRightLeft: function(o, pos, first) {
       let aux;
       if (first) {
         pos.vertical = false;
@@ -769,28 +816,43 @@ const brushstroke = () => {
       pos.y = first ? o.height - o.padding : aux;
     },
 
-    render: function (o) {
+    render: function(o) {
       if (!is.und(o.duration) || !is.und(o.frames)) {
         let that = this;
 
         if (o.delay) {
           let delay = o.delay;
           delete o.delay;
-          setTimeout(function () {
+          setTimeout(function() {
             that.render(o);
           }, delay * 1000);
           return;
         }
 
-        if (o.erase) o.ctx.globalCompositeOperation = 'destination-out';
+        if (o.erase) o.ctx.globalCompositeOperation = "destination-out";
 
-        let frame = 1, elapsed, time, t, point, x = 0, y = 0;
+        let frame = 1,
+          elapsed,
+          time,
+          t,
+          point,
+          x = 0,
+          y = 0;
         let startTime = new Date();
 
         if (!is.und(o.startX)) x = o.startX;
         if (!is.und(o.startY)) y = o.startY;
 
-        let brush = new Brush(x, y, o.pattern || o.color, o.size, o.inkAmount, o.angle, o.dripping, o.splashing);
+        let brush = new Brush(
+          x,
+          y,
+          o.pattern || o.color,
+          o.size,
+          o.inkAmount,
+          o.angle,
+          o.dripping,
+          o.splashing
+        );
         brush.startStroke(x, y);
         callFunction(o.begin);
 
@@ -830,7 +892,7 @@ const brushstroke = () => {
 
           if (time >= 1) {
             brush.endStroke();
-            if (o.erase) o.ctx.globalCompositeOperation = 'source-over';
+            if (o.erase) o.ctx.globalCompositeOperation = "source-over";
             callFunction(o.end);
             o.d.resolve();
           } else {
@@ -846,21 +908,40 @@ const brushstroke = () => {
     },
 
     animations: {
-      'to-bottom': function(o) {
-        callFunction(this.animations.basic, this, extend(o, {direction: 'bottom'}));
+      "to-bottom": function(o) {
+        callFunction(
+          this.animations.basic,
+          this,
+          extend(o, { direction: "bottom" })
+        );
       },
-      'to-top': function(o) {
-        callFunction(this.animations.basic, this, extend(o, {direction: 'top'}));
+      "to-top": function(o) {
+        callFunction(
+          this.animations.basic,
+          this,
+          extend(o, { direction: "top" })
+        );
       },
-      'to-right': function(o) {
-        callFunction(this.animations.basic, this, extend(o, {direction: 'right'}));
+      "to-right": function(o) {
+        callFunction(
+          this.animations.basic,
+          this,
+          extend(o, { direction: "right" })
+        );
       },
-      'to-left': function(o) {
-        callFunction(this.animations.basic, this, extend(o, {direction: 'left'}));
+      "to-left": function(o) {
+        callFunction(
+          this.animations.basic,
+          this,
+          extend(o, { direction: "left" })
+        );
       },
-      'basic': function(o) {
+      basic: function(o) {
         let pos = this.setPos(o);
-        let brushstrokes = Math.ceil(((pos.vertical ? o.height : o.width) + (o.size / 2) - (o.padding * 2)) / (o.size - o.overlap));
+        let brushstrokes = Math.ceil(
+          ((pos.vertical ? o.height : o.width) + o.size / 2 - o.padding * 2) /
+            (o.size - o.overlap)
+        );
         let angle = pos.vertical ? Math.PI * 0.5 : 0;
         let duration = o.duration / brushstrokes;
         let frames = o.frames / brushstrokes;
@@ -872,20 +953,27 @@ const brushstroke = () => {
         function fixOverflow(axis, i) {
           if (i === 0) pos[axis] = pos[axis] - overflow;
           if (i === 1) pos[axis] = pos[axis] + overflow;
-          if (i === brushstrokes - 1) pos[axis] = alt ? pos[axis] + overflow : pos[axis] - overflow;
+          if (i === brushstrokes - 1)
+            pos[axis] = alt ? pos[axis] + overflow : pos[axis] - overflow;
         }
 
         for (let i = 0; i < brushstrokes; i++) {
           if (o.lifting) {
             first = i === 0;
             last = i === brushstrokes - 1;
-            opts = extend({}, o, pos, {duration: duration, frames: frames, angle: angle, render: true, queue: true});
+            opts = extend({}, o, pos, {
+              duration: duration,
+              frames: frames,
+              angle: angle,
+              render: true,
+              queue: true
+            });
             if (!first) opts.begin = null;
             if (!last) opts.end = null;
             this.draw(opts);
           } else {
             if (overflow) {
-              pos.vertical ? fixOverflow('x') : fixOverflow('y');
+              pos.vertical ? fixOverflow("x") : fixOverflow("y");
             }
             points.push(pos.startX, pos.startY, pos.x, pos.y);
           }
@@ -896,25 +984,30 @@ const brushstroke = () => {
         if (o.lifting) {
           o.d.resolve();
         } else {
-          callFunction(this.animations.points, this, extend(o, {animation: 'points', points: points, angle: angle}));
+          callFunction(
+            this.animations.points,
+            this,
+            extend(o, { animation: "points", points: points, angle: angle })
+          );
         }
       },
-      'path': function(o) {
+      path: function(o) {
         this.setPath(o);
         let point = this.pointAt(0, o);
-        this.render(extend(o, {startX: point.x, startY: point.y}));
+        this.render(extend(o, { startX: point.x, startY: point.y }));
       },
-      'points': function(o) {
+      points: function(o) {
         let points = o.points || 0;
         points = is.num(points) ? randomize(points, o.width, o.height) : points;
         points = getCurvePoints(points, o.tension);
-        this.render(extend(o, {points: points, startX: points[0], startY: points[1]}));
+        this.render(
+          extend(o, { points: points, startX: points[0], startY: points[1] })
+        );
       }
     }
   };
 
   return Brushstroke;
-
 };
 
 export default brushstroke();
