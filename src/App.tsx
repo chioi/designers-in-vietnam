@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import "./App.css";
-import Stroke from "./assets/long-stroke.svg";
+import Title from "./assets/title.svg";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
@@ -89,8 +89,7 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
   return (
     <main className="App">
       <header className="margin-bottom-large">
-        <h1 className="main-heading">Designers of Vietnam</h1>
-        <img alt="A brush stroke" src={Stroke} />
+        <img alt="Designers of Vietnam" src={Title} />
       </header>
       <section>
         <TagsList
