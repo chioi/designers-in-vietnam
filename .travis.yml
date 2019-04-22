@@ -15,8 +15,8 @@ jobs:
         on:
           branch: master
     - stage: deploy to production
-      scripg: yarn build
-      before_deploy: "echo 'ready?'"
+      script: yarn build
+      before_deploy: "echo 'listing build' && ls build"
       deploy:
         provider: firebase
         skip_cleanup: true
