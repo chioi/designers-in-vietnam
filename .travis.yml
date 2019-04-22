@@ -1,20 +1,20 @@
 language: node_js
-node_js:
-  "10.15.1"
-
+node_js: 10.15.1
 jobs:
   include:
-    - stage: "lint"
-      name: "lint"
-      script: ./lint
-    - stage: deploy
-      script: "yarn build"
+    - stage: lint
+      name: lint
+      script: "./lint"
       deploy:
         provider: pages
         skip_cleanup: true
-        github_token: $GITHUB_ACCESS_TOKEN
+        github_token: "$GITHUB_ACCESS_TOKEN"
         local_dir: build
         on:
           branch: master
-
-
+    - stage: deploy
+      script: yarn build
+      deploy:
+        provider: firebase
+        token:
+          secure: OG1X0tqCw0NO941Im2SrghhL5ITRdvAi6zhuftqcOJP1AGpvC/+lIoB6Mp1wKBDtK4w89FzoqQ8mvz00c0BxiION0HTeEmiNz5yeO/QoR3bRuNfpk9cAMScFg5L8WmJKdNK6EJ8YPZS4muJQKne4534lZ6HAw8NbaH0evdmWVGScd1iDs3Ax3P0g4/YFrqFnMRnSTB7K4P0OwWIWG1kZQzWzyhP1d6Gw6W5TaCz56ELZSAVMhY92IWlUWJmQYTTJx6GH6qAgo8bRPE3CNkYmeOxwCvbi5cjpBjfpyr2sGPpympxUXQuublNJ8q6cu9FAENgyIw7i8To22aIu3PtbKYemkci/xe/ZKBnFU95INAJEQA8+g6A34wQTLklzg7B28GD2zCf5jtQefqf6RveF9xZFjmFjOMc/TE4B2nvkahfJF9OZgLx892gJ92wJMdQpnH4KaFHuG12U9XSQ8WQcR+BoGnmRGsZfIWWz5qGFd1uatBMkIqZaqoX/ecz31R+XtYZTz0tfgOa2YXm/n7xQRI+7go2/I2XljwEqA0rFln0gm3HZmq+ggJ+2ylDNLGWVjrYpiTbm5OxgjH3SE2NgsRkEjQYyv+xiAcKE9cV1anvxbuKneP2+8mZ40g3FtdezfgE+569rq8/kC56A8BiBxaQ2Am3EYWChggMbmL8OTOw=
