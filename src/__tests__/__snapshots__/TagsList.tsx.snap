@@ -5,7 +5,7 @@ exports[`gets created with tags matches the snapshot 1`] = `
   className="horizontal-list"
 >
   <li
-    className="tag "
+    className="tag"
   >
     <label
       className="tag-content"

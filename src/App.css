@@ -1,11 +1,38 @@
 :root {
-  --font-small: 0.6rem;
-  --font-medium: 0.8rem;
-  --font-regular: 1rem;
-  --space-small: 0.2rem;
-  --space-medium: 0.4rem;
+  --font-base: 1rem;
+  --unit: 2px;
+  --font-heading-base: calc(var(--font-base) * 2 - var(--unit));
+  --font-heading-regular: calc(var(--font-heading-base) - var(--font-base) * 0.25);
+  --font-heading-medium: calc(var(--font-heading-base) - var(--font-base) * 0.75);
+  --font-regular: calc(var(--font-base) - var(--font-base) * 0.125);
+  --font-medium: calc(var(--font-base) - var(--unit) - var(--unit));
+  --font-small: calc(var(--font-base) - var(--unit) - var(--unit) - var(--unit));
+  --space-small: 0.25rem;
+  --space-medium: 0.5rem;
+  --space-regular: 1rem;
+  --space-big: 2rem;
+  --space-large: 3rem;
   --color-subtitle: gray;
-  --font-headings: serif;
+  --font-family-headings: Palatino, Times;
+  --font-family-normal: Helvetica;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  font-family: var(--font-family-normal);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
 }
 
 h1,
@@ -13,23 +40,45 @@ h2,
 h3 {
   font-weight: normal;
   margin: var(--space-medium) 0;
+  font-family: var(--font-family-headings);
+}
+
+h1 {
+  font-size: var(--font-heading-base);
 }
 
 .App {
   text-align: center;
+  padding: 8px 103px 16px 103px;
 }
 
 .App ul {
   list-style: none;
 }
 
-.main-heading {
-  text-decoration: underline;
-}
-
 .horizontal-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+@media screen and (max-width: 480px){
+  .App {
+    padding: 0 8px;
+  }
+}
+
+.padding-vertical-regular {
+  padding-top: var(--space-regular);
+  padding-bottom: var(--space-regular);
+}
+
+.margin-bottom-big {
+  margin-bottom: var(--space-big);
+}
+
+.margin-bottom-large {
+  margin-bottom: var(--space-large);
 }

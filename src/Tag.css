@@ -5,6 +5,11 @@
 
 .tag-content {
   padding: var(--space-small);
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .tag-content:hover {
@@ -14,10 +19,25 @@
 .tag {
   display: flex;
   position: relative;
-  font-size: var(--font-regular);
+  font-size: var(--font-heading-base);
+  font-weight: 300;
   margin: 0 var(--space-small);
+  z-index: 3;
 }
 
-.tag--selected {
-  text-decoration: line-through;
+.tag canvas {
+  z-index: 1;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.tag--selected canvas {
+  -webkit-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  -o-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+  opacity: 1;
 }
