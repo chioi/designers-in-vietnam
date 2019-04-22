@@ -36,7 +36,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
         🛵
       </span>
       <a
-        className="designer-link margin-right-regular"
+        className="designer-link margin-right-big"
       >
         Site
       </a>
@@ -82,7 +82,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
         🛵
       </span>
       <a
-        className="designer-link margin-right-regular"
+        className="designer-link margin-right-big"
       >
         Site
       </a>

@@ -23,6 +23,7 @@
   font-size: var(--font-regular);
   margin-bottom: 24px;
   letter-spacing: 0.1px;
+  line-height: 1.64;
 }
 
 .designer-link {

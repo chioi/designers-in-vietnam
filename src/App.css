@@ -96,6 +96,6 @@ h1 {
   margin-bottom: var(--space-large);
 }
 
-.margin-right-regular {
-  margin-right: var(--space-regular);
+.margin-right-big {
+  margin-right: var(--space-big);
 }
