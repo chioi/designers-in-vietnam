@@ -17,11 +17,12 @@
 }
 
 .tag {
+  color: var(--color-primary-light);
   display: flex;
   position: relative;
-  font-size: var(--font-heading-base);
-  font-weight: 300;
-  margin: 0 var(--space-small);
+  font-size: var(--font-heading-medium);
+  font-weight: normal;
+  margin: 0 var(--space-regular);
   z-index: 3;
 }
 
@@ -32,6 +33,11 @@
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
   opacity: 0;
+}
+
+.tag--selected {
+  color: var(--color-primary);
+  font-weight: bold;
 }
 
 .tag--selected canvas {
