@@ -88,7 +88,7 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
 
   return (
     <main className="App">
-      <header className="margin-bottom-large">
+      <header className="margin-bottom-regular">
         <img alt="Designers of Vietnam" src={Title} />
       </header>
       <section>
