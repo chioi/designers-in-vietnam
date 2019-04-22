@@ -2,28 +2,28 @@ language: node_js
 node_js: 10.15.1
 jobs:
   include:
-  - stage: lint
-    name: lint
-    script: "./lint"
-  - stage: deploy to staging
-    script: yarn build
-    deploy:
-      provider: pages
-      skip_cleanup: true
-      github_token: "$GITHUB_ACCESS_TOKEN"
-      local_dir: build
-      on:
-        branch: master
-  - stage: deploy to production
-    scripg: yarn build
-    deploy:
-      provider: firebase
-      skip_cleanup: true
-      token:
-        secure: g8YFhucM1ps16ZoFbTlO55SDmme84UfaDvS+j0zoQtENOBzESZovZsN1lq5KwUOSRcx1IvEfVDLKb7GJ/B84FAq0gZucwWKYczfE7/vQDgKfzCnQ/hL32PoWOHR5+ON3JV302xkcHakpRprF+0sizPdIdMV8pOb23DR3+vrDeMM9laNqzBo3uPQzlUrqVu8jLMnQajs1LrC0stgtmKoEu3HmBxTYqZTi2GH81DOvMMa5b7MSML/cUa5+a/j0bgm7EgN2XCxP7V1XFO7rO6QVvhb2EzA4+7eMVKaLsiKKksclOYNghO2/k5TLL6v1Dt0XlVos0J3PRZnvURdrjBWWjEwNaD1uDznva4s7dhTxB8uejAFHBlNGvn5EGzt/yhvNEN6RT2DWXCtbv4XmKGsKY0n4cgdpJ9H2qv3C9lHjf3/U4/cogipC1BihUo0ueqKW00pe6mNyz05eWUqCzYtSJG9ZkdZtZmFkNDQH7gz1uH6ma5cpBuca6NNvVkmbEpHzTAPKjTq7+hz+9WmAmWhoI8/ZZZIC7jmk2ZZqY1xuDwI6undHEZWWf67GJBEipXMrkr3KsfRg4AnYLAVPqrqBDa9dY8wIZ5oimeFM9BUvX9J8ni6a1JCQVpqmS4jNd7P/8+oJNSo+LIlZ++Aimg4CIQVqqAIUMSJt8xHX/JvmcVs=
-      local_dir: build
-      on:
-        branch: master
+    - stage: lint
+      name: lint
+      script: "./lint"
+    - stage: deploy to staging
+      script: yarn build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: "$GITHUB_ACCESS_TOKEN"
+        local_dir: build
+        on:
+          branch: master
+    - stage: deploy to production
+      scripg: yarn build
+      deploy:
+        provider: firebase
+        skip_cleanup: true
+        token:
+          secure: zjs/EeOWHee/tgio0DyGu/tjnCIK6fw+C1mxEwxalggkS7wE3/kMulqq3WazaWVhp9BmVSo2sMPbxPDYBqFxPV43SF9BGfsRYu8TIb7hsKzzH4PH1J/qgPE2eqo/v1UsOT3IKKNYlXe8mePdT9Y/QWy9+Z/Yh6xYejEfGwGI1CRFw0On8CRpd82qRcSN9ClzlzdflzRL18uRRk08onwW0uywmMMHBAzkiZRGWID8ozWQ9PwIn0huOLBzEcqTZHr87NQWZlc8FXrrLFDcGFZu3fRp30ndyZ0GnMtU/N4gmrQHI1zQSJsMuBdyHcgfTg7px+kLC8GvyKHhpPWSYhbNqeCEZQ/K3jmsd6/qtx33Y346mUgZ0TK3I49rLcemsmK1/mk3Gt8K8TluoOl/LOhH6CI49opRXdyy5OGZNn3LxET4oN89IVphSD6VK8Or66PV8TVsuxLD/FfwrjOILZRHtYXvCnOMbdr1+ElXvxrTWPZqUe/zsymFpOIiMX1t7My6RPdfbaU5dB4IUD20fCjdkoezdaAGosW15Y6fEkiEMc/uyhx62dFEo01DfVp0wuEubbknsB/J6C3e+PFFWCDO2GOmqeJev6KMPqNWHcMWuC96i/i5ZXYP1wtlUpBppfNzGiYeJsbAAXPF5vdlAzNOtzpcZIWgPgN9hwPNQ4x+qQE=
+        local_dir: build
+        on:
+          branch: master
 env:
   global:
-    secure: U/o+r1eXk//wAfNIHcNBcrJFpD4mN0pBwXiWWgAScoSSDGoEoCpJVNRXl6/C7Y5PKlal78gSHyO/UocO7F2AE5lvsRVEO9mzn/p9rO8yV5Y2qS5HnWJlScFaHuYyIe1o6/45BtNI045dRj9WVYlPW+UdLqrQtwf07ia7wSM8pS1bKwzTrWB4KQo1S60bWubdNkQ00dz/CNvELs8x5THlB/UZD+dmpioKfJWl0AWXa+joONzgOVSFK6iF/H1+44tzLCCqrgvha69m0dElOisPdLTQlWwTMqVjvbS+QnLT+bCW816DtRPNEv6ByJ3Ar76qD9htNIkpU/hLcYZT9sveR0yRJQtm+/1c6D38MBvYDDx5AYaXOJuZUqnhdqdN9FzybeJhxH8/0m6D1UM+juqnMugY5hNBidwlOzs0aqyLkaX4EfGrDni00hgVGiQfJO+/MvKwyASD5ncs854ca9zbuvS7eZiOkTvq/apqeDx20OAHM0CX5Rbc2ZQMrvwZb8RGBnrPjM860mo7SEGaBBaG0yhKRSZBt6BGPeSXWaMJBASOYlmtpH+BTvYlstrmB5W+2OBKXHdQagNh7Bn+AgU/jipeD9+VNjcDyJEb2WimVw3CVQrSWDjD4aXhbWYSEfXiu86VUYletZL10BDIMQ8uPHY3bDU00Y+j2VJuYTReoZM=
+    secure: zjs/EeOWHee/tgio0DyGu/tjnCIK6fw+C1mxEwxalggkS7wE3/kMulqq3WazaWVhp9BmVSo2sMPbxPDYBqFxPV43SF9BGfsRYu8TIb7hsKzzH4PH1J/qgPE2eqo/v1UsOT3IKKNYlXe8mePdT9Y/QWy9+Z/Yh6xYejEfGwGI1CRFw0On8CRpd82qRcSN9ClzlzdflzRL18uRRk08onwW0uywmMMHBAzkiZRGWID8ozWQ9PwIn0huOLBzEcqTZHr87NQWZlc8FXrrLFDcGFZu3fRp30ndyZ0GnMtU/N4gmrQHI1zQSJsMuBdyHcgfTg7px+kLC8GvyKHhpPWSYhbNqeCEZQ/K3jmsd6/qtx33Y346mUgZ0TK3I49rLcemsmK1/mk3Gt8K8TluoOl/LOhH6CI49opRXdyy5OGZNn3LxET4oN89IVphSD6VK8Or66PV8TVsuxLD/FfwrjOILZRHtYXvCnOMbdr1+ElXvxrTWPZqUe/zsymFpOIiMX1t7My6RPdfbaU5dB4IUD20fCjdkoezdaAGosW15Y6fEkiEMc/uyhx62dFEo01DfVp0wuEubbknsB/J6C3e+PFFWCDO2GOmqeJev6KMPqNWHcMWuC96i/i5ZXYP1wtlUpBppfNzGiYeJsbAAXPF5vdlAzNOtzpcZIWgPgN9hwPNQ4x+qQE=
