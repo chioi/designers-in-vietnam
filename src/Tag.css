@@ -20,7 +20,7 @@
   color: var(--color-primary-light);
   display: flex;
   position: relative;
-  font-size: var(--font-heading-base);
+  font-size: var(--font-heading-medium);
   font-weight: 300;
   margin: 0 var(--space-small);
   z-index: 3;
