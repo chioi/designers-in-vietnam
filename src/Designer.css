@@ -13,7 +13,6 @@
 
 .designer-title {
   text-align: left;
-  color: var(--color-subtitle);
   font-weight: 300;
   font-size: var(--font-heading-medium);
   font-family: var(--font-family-normal);
@@ -44,6 +43,6 @@
 
 @media screen and (min-width: 480px) {
   .designer {
-    max-width: 290px;
+    max-width: 260px;
   }
 }

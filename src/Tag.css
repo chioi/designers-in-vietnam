@@ -17,6 +17,7 @@
 }
 
 .tag {
+  color: var(--color-primary-light);
   display: flex;
   position: relative;
   font-size: var(--font-heading-base);
@@ -32,6 +33,10 @@
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
   opacity: 0;
+}
+
+.tag--selected {
+  color: var(--color-primary);
 }
 
 .tag--selected canvas {

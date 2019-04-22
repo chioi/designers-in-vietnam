@@ -20,7 +20,8 @@
   --space-regular: 1rem;
   --space-big: 2rem;
   --space-large: 3rem;
-  --color-subtitle: gray;
+  --color-primary: #2a2a2a;
+  --color-primary-light: #767676;
   --font-family-headings: 'Libre Baskerville', Palatino, Times;
   --font-family-normal: Lato, Helvetica;
 }
