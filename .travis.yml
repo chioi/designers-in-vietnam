@@ -15,10 +15,8 @@ jobs:
         on:
           branch: master
     - stage: deploy to production
-      script: yarn build
-      deploy:
-        provider: firebase
-        skip_cleanup: true
-        local_dir: build
-        token:
-          secure: "TCRvmZ6lPDuI0bzz4yH3rJ7QJTCfEoww0UVKTSpCXg8MmtYRj/kherupw5OeNXDlKO0GIQwu5SEnlZCgM2dmTxbIfuzuz8OSmQpoGyIoJTrD/QxtbaUDkpMU/fmKsVVr/T7zLf+RuiyK3rDXajZAGtz1KzGUnUjgC6fcsAjGJlDQIug/2B8TkxRmMaekwzY8Rhfqvzdep8cDLwclf3/DLeR88BbELw1AlBfIrt4to91S/6DXoY6zJJbzswLE8pj46JJDr1HxFgBLAAQlkLNa+S9wwmELS+DJb0G3Fa4MX4XxPmBVN3CP8IZ7OgO8kplogU3s5mHsyb50kBmFZhUyNJ6mwskD46wefqP3AcT5wgwOWq0gdUgur6x4d6ek+1v4WySrkdU7nT2xkbDYJWH519IYgNhTVwT04FJ8E/5rNuZrSFSS3W1PrGwoQ9ap5ZPoFDzJ+i81rWZ6V6qtkDkhXBY78qqmzvRLOvf7O5PAPGNQk8Ik0b158vhPYqiP9nQLGRa42jSegTWs1Sr9knssMhlt0vKS9U2BL8ArubKj0HWSQcLQIO5YIdeACp+mV+UhxSaVhmhKAucGUs+J/enrQEutWgKsvfQtVhTA74omNTF8EiGCmEvXNdr32nK/Y63yASTIHizW56vJNPcTqdLZZZ0Y0Ot1qo4cgsdj5Zg1L0w="
+      before_script:
+        - yarn
+        - yarn build
+      script:
+        - yarn deploy --only hosting --token "TCRvmZ6lPDuI0bzz4yH3rJ7QJTCfEoww0UVKTSpCXg8MmtYRj/kherupw5OeNXDlKO0GIQwu5SEnlZCgM2dmTxbIfuzuz8OSmQpoGyIoJTrD/QxtbaUDkpMU/fmKsVVr/T7zLf+RuiyK3rDXajZAGtz1KzGUnUjgC6fcsAjGJlDQIug/2B8TkxRmMaekwzY8Rhfqvzdep8cDLwclf3/DLeR88BbELw1AlBfIrt4to91S/6DXoY6zJJbzswLE8pj46JJDr1HxFgBLAAQlkLNa+S9wwmELS+DJb0G3Fa4MX4XxPmBVN3CP8IZ7OgO8kplogU3s5mHsyb50kBmFZhUyNJ6mwskD46wefqP3AcT5wgwOWq0gdUgur6x4d6ek+1v4WySrkdU7nT2xkbDYJWH519IYgNhTVwT04FJ8E/5rNuZrSFSS3W1PrGwoQ9ap5ZPoFDzJ+i81rWZ6V6qtkDkhXBY78qqmzvRLOvf7O5PAPGNQk8Ik0b158vhPYqiP9nQLGRa42jSegTWs1Sr9knssMhlt0vKS9U2BL8ArubKj0HWSQcLQIO5YIdeACp+mV+UhxSaVhmhKAucGUs+J/enrQEutWgKsvfQtVhTA74omNTF8EiGCmEvXNdr32nK/Y63yASTIHizW56vJNPcTqdLZZZ0Y0Ot1qo4cgsdj5Zg1L0w="
