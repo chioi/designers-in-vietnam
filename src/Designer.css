@@ -2,6 +2,8 @@
   width: 100%;
   border-radius: var(--space-small);
   margin-bottom: var(--space-medium);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: grayscale(1);
 }
 
 .designer-name {
