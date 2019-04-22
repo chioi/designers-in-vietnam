@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useState} from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import "./App.css";
 import Stroke from "./assets/long-stroke.svg";
 import ConnectionError from "./ConnectionError";
@@ -32,7 +32,28 @@ const fetchFromFirestore = <T extends IFirestoreDocument>(
     });
 };
 
-const App:FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
+export const tagLookup = (tags: Map<string, ITag>) => (name: string) =>
+  tags.has(name);
+
+export const hasASelectedTag = (predicate: (x: string) => boolean) => (
+  designer: IDesigner
+) => {
+  return designer.tags.some(predicate);
+};
+
+export const getSelectedDesigners = (
+  selectedTags: Map<string, ITag>,
+  designers: IDesigner[]
+) => {
+  if (selectedTags.size === 0) {
+    return designers;
+  } else {
+    const isSelectedTag = tagLookup(selectedTags);
+    return designers.filter(hasASelectedTag(isSelectedTag));
+  }
+};
+
+const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
   const [error, saveError] = useState(null);
   const [designers, saveDesigners] = useState(initialDesigners);
   const [tags, saveTags] = useState(initialTags);
@@ -58,6 +79,13 @@ const App:FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
       .catch(saveError);
   }, []);
 
+  const memoGetSelectedDesigners = useCallback(getSelectedDesigners, [
+    selectedTags,
+    designers
+  ]);
+
+  const selectedDesigners = memoGetSelectedDesigners(selectedTags, designers);
+
   return (
     <main className="App">
       <header className="margin-bottom-large">
@@ -72,8 +100,8 @@ const App:FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
         />
       </section>
       <section>
-        {error && designers === [] && <ConnectionError />}
-        <DesignersList designers={designers} />
+        {error && selectedDesigners === [] && <ConnectionError />}
+        <DesignersList designers={selectedDesigners} />
       </section>
     </main>
   );
