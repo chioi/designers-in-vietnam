@@ -90,6 +90,12 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
     <main className="App">
       <header className="margin-bottom-regular">
         <img alt="Designers of Vietnam" src={Title} />
+        <a href="#">
+          <span className="translate-y-50 float-right">🛵</span>
+        </a>
+        <a href="#">
+          <span className="translate-y-50 float-right margin-right-regular">🇻🇳 </span>
+        </a>
       </header>
       <section>
         <TagsList

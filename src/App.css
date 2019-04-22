@@ -96,6 +96,22 @@ h1 {
   margin-bottom: var(--space-large);
 }
 
+.margin-right-regular {
+  margin-right: var(--space-regular);
+}
+
 .margin-right-big {
   margin-right: var(--space-big);
+}
+
+.float-right {
+  float: right;
+}
+
+.translate-y-50 {
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%);
 }
