@@ -6,14 +6,14 @@
 
 .designer-name {
   text-align: left;
-  font-weight: 300;
+  font-weight: 700;
   font-family: var(--font-family-headings);
   font-size: var(--font-heading-regular);
 }
 
 .designer-title {
   text-align: left;
-  font-weight: 300;
+  font-weight: 100;
   font-size: var(--font-heading-medium);
   font-family: var(--font-family-normal);
 }
@@ -26,11 +26,7 @@
 }
 
 .designer-link {
-  font-size: var(--font-heading-medium);
-}
-
-.designer-link-separator {
-  margin: 0 var(--space-small);
+  font-size: var(--font-regular);
 }
 
 .designer-info {
