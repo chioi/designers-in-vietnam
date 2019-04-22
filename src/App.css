@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Libre+Baskerville');
+
 :root {
   --font-base: 1rem;
   --unit: 2px;
   --font-heading-base: calc(var(--font-base) * 2 - var(--unit));
-  --font-heading-regular: calc(var(--font-heading-base) - var(--font-base) * 0.25);
-  --font-heading-medium: calc(var(--font-heading-base) - var(--font-base) * 0.75);
+  --font-heading-regular: calc(
+    var(--font-heading-base) - var(--font-base) * 0.25
+  );
+  --font-heading-medium: calc(
+    var(--font-heading-base) - var(--font-base) * 0.75
+  );
   --font-regular: calc(var(--font-base) - var(--font-base) * 0.125);
   --font-medium: calc(var(--font-base) - var(--unit) - var(--unit));
-  --font-small: calc(var(--font-base) - var(--unit) - var(--unit) - var(--unit));
+  --font-small: calc(
+    var(--font-base) - var(--unit) - var(--unit) - var(--unit)
+  );
   --space-small: 0.25rem;
   --space-medium: 0.5rem;
   --space-regular: 1rem;
   --space-big: 2rem;
   --space-large: 3rem;
   --color-subtitle: gray;
-  --font-family-headings: Palatino, Times;
-  --font-family-normal: Helvetica;
+  --font-family-headings: 'Libre Baskerville', Palatino, Times;
+  --font-family-normal: Lato, Helvetica;
 }
 
 html {
@@ -32,7 +40,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
 }
 
 h1,
@@ -49,7 +57,7 @@ h1 {
 
 .App {
   text-align: center;
-  padding: 8px 103px 16px 103px;
+  padding: 48px 103px 48px 103px;
 }
 
 .App ul {
@@ -64,7 +72,7 @@ h1 {
   padding: 0;
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
   .App {
     padding: 0 8px;
   }
