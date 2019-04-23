@@ -32,7 +32,9 @@ exports[`gets created with designers matches the snapshot 1`] = `
     <footer
       className="designer-info"
     >
-      <span>
+      <span
+        className="margin-right-medium"
+      >
         🛵
       </span>
       <a
@@ -40,7 +42,9 @@ exports[`gets created with designers matches the snapshot 1`] = `
       >
         Site
       </a>
-      <span>
+      <span
+        className="margin-right-medium"
+      >
         🛵
       </span>
       <a
@@ -78,7 +82,9 @@ exports[`gets created with designers matches the snapshot 1`] = `
     <footer
       className="designer-info"
     >
-      <span>
+      <span
+        className="margin-right-medium"
+      >
         🛵
       </span>
       <a
@@ -86,7 +92,9 @@ exports[`gets created with designers matches the snapshot 1`] = `
       >
         Site
       </a>
-      <span>
+      <span
+        className="margin-right-medium"
+      >
         🛵
       </span>
       <a
