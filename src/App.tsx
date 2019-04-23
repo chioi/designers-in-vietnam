@@ -1,5 +1,6 @@
 import { RouteComponentProps } from "@reach/router";
 import React, { FC, useCallback, useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import "./App.css";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
@@ -86,6 +87,9 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
 
   const selectedDesigners = memoGetSelectedDesigners(selectedTags, designers);
 
+  if (process.env.NODE_ENV === "production") {
+    ReactGA.pageview("/home");
+  }
   return (
     <>
       <section>
