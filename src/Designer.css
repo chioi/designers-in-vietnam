@@ -6,8 +6,8 @@
 
 .designer-name {
   text-align: left;
-  font-weight: 700;
-  font-family: var(--font-family-headings);
+  font-weight: 900;
+  font-family: var(--font-family-normal);
   font-size: var(--font-heading-regular);
 }
 
