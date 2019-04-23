@@ -1,5 +1,6 @@
 import { RouteComponentProps } from "@reach/router";
 import React, { FC, useCallback, useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import "./App.css";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
@@ -7,7 +8,6 @@ import DesignersList from "./DesignersList";
 import firestore from "./firestore";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
-import ReactGA from "react-ga";
 
 interface IFirestoreDocument {
   id?: string;

@@ -1,7 +1,7 @@
 import { Link, RouteComponentProps } from "@reach/router";
 import React, { FC } from "react";
-import "./About.css";
 import ReactGA from "react-ga";
+import "./About.css";
 
 // TODO: Refactor styles and remove inline styles
 const About: FC<RouteComponentProps> = () => {
@@ -37,9 +37,9 @@ const About: FC<RouteComponentProps> = () => {
       >
         <div
           style={{
+            alignContent: "flex-start",
             display: "flex",
-            flexDirection: "column",
-            alignContent: "flex-start"
+            flexDirection: "column"
           }}
         >
           <h3 className="designer-name">Are you a designer?</h3>
@@ -52,9 +52,9 @@ const About: FC<RouteComponentProps> = () => {
         </div>
         <div
           style={{
+            alignContent: "flex-start",
             display: "flex",
-            flexDirection: "column",
-            alignContent: "flex-start"
+            flexDirection: "column"
           }}
         >
           <h3 className="designer-name">Feedback or ideas?</h3>

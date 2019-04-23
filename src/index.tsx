@@ -1,11 +1,11 @@
 import { Router } from "@reach/router";
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from "react-ga";
 import About from "./About";
 import App from "./App";
 import MainHeader from "./MainHeader";
 import * as serviceWorker from "./serviceWorker";
-import ReactGA from "react-ga";
 
 if (process.env.NODE_ENV === "production") {
   ReactGA.initialize("UA-138909386-1");
