@@ -4,11 +4,17 @@ exports[`gets created matches the snapshot 1`] = `
 <header
   className="margin-bottom-regular position-relative"
 >
-  <img
-    alt="Designers of Vietnam"
-    className="title-image"
-    src="title.svg"
-  />
+  <a
+    aria-current="page"
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="Designers of Vietnam"
+      className="title-image"
+      src="title.svg"
+    />
+  </a>
   <a
     className="header-link margin-right-large"
     href="/about"
