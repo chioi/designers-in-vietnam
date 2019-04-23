@@ -7,8 +7,8 @@ interface IDesignersListProps {
 }
 
 const DesignersList = (props: IDesignersListProps) => {
-  const designerWrappers = props.designers.map((designer: IDesigner) => (
-    <Designer key={designer.name} designer={designer} />
+  const designerWrappers = props.designers.map((designer: IDesigner, i: number) => (
+    <Designer key={`${designer.name}-${i}`} designer={designer} />
   ));
   return <div className="horizontal-list padding-vertical-regular">{designerWrappers}</div>;
 };
