@@ -38,7 +38,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
         <span
           className="margin-right-medium"
         >
-          🛵
+          👋
         </span>
         Contact
       </a>
@@ -49,7 +49,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
         <span
           className="margin-right-medium"
         >
-          🛵
+          🌐
         </span>
         Portfolio
       </a>
@@ -89,7 +89,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
         <span
           className="margin-right-medium"
         >
-          🛵
+          👋
         </span>
         Contact
       </a>
@@ -100,7 +100,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
         <span
           className="margin-right-medium"
         >
-          🛵
+          🌐
         </span>
         Portfolio
       </a>
