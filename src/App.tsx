@@ -1,3 +1,4 @@
+import { RouteComponentProps } from "@reach/router";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import "./App.css";
 import ConnectionError from "./ConnectionError";
@@ -12,7 +13,7 @@ interface IFirestoreDocument {
   id?: string;
 }
 
-interface IAppProps {
+interface IAppProps extends RouteComponentProps {
   initialDesigners?: IDesigner[];
   initialTags?: ITag[];
 }
