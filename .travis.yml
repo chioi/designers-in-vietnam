@@ -4,16 +4,7 @@ jobs:
   include:
     - stage: lint
       name: lint
-      script: "./lint"
-    - stage: deploy to staging
-      script: yarn build
-      deploy:
-        provider: pages
-        skip_cleanup: true
-        github_token: "$GITHUB_ACCESS_TOKEN"
-        local_dir: build
-        on:
-          branch: master
+      script: yarn lint
     - stage: deploy to production
       script: yarn build
       before_deploy: "echo 'listing build' && ls build"

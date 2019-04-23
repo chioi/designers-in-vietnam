@@ -8,7 +8,7 @@ const config = {
   databaseURL: process.env.REACT_APP_FIRESTORE_DATABASE_URL,
   messagingSenderId: process.env.REACT_APP_FIRESTORE_MESSAGING_SENDER_ID,
   projectId: process.env.REACT_APP_FIRESTORE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIRESTORE_STORAGE_BUCKET,
+  storageBucket: process.env.REACT_APP_FIRESTORE_STORAGE_BUCKET
 };
 
 firebase.initializeApp(config);
