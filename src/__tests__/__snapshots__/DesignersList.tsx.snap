@@ -2,7 +2,7 @@
 
 exports[`gets created with designers matches the snapshot 1`] = `
 <div
-  className="horizontal-list padding-vertical-regular"
+  className="horizontal-list padding-vertical-regular justify-space-between"
 >
   <article
     className="designer"
@@ -30,23 +30,28 @@ exports[`gets created with designers matches the snapshot 1`] = `
       </p>
     </div>
     <footer
-      className="designer-info"
+      className="designer-contact"
     >
-      <span>
-        🛵
-      </span>
       <a
         className="designer-link margin-right-big"
       >
-        Site
+        <span
+          className="margin-right-medium"
+        >
+          👋
+        </span>
+        Contact
       </a>
-      <span>
-        🛵
-      </span>
       <a
         className="designer-link"
+        href="www.google.com"
       >
-        Contact
+        <span
+          className="margin-right-medium"
+        >
+          🌐
+        </span>
+        Portfolio
       </a>
     </footer>
   </article>
@@ -76,23 +81,28 @@ exports[`gets created with designers matches the snapshot 1`] = `
       </p>
     </div>
     <footer
-      className="designer-info"
+      className="designer-contact"
     >
-      <span>
-        🛵
-      </span>
       <a
         className="designer-link margin-right-big"
       >
-        Site
+        <span
+          className="margin-right-medium"
+        >
+          👋
+        </span>
+        Contact
       </a>
-      <span>
-        🛵
-      </span>
       <a
         className="designer-link"
+        href="www.facebook.com"
       >
-        Contact
+        <span
+          className="margin-right-medium"
+        >
+          🌐
+        </span>
+        Portfolio
       </a>
     </footer>
   </article>
@@ -101,6 +111,6 @@ exports[`gets created with designers matches the snapshot 1`] = `
 
 exports[`gets created without designers matches the snapshot 1`] = `
 <div
-  className="horizontal-list padding-vertical-regular"
+  className="horizontal-list padding-vertical-regular justify-space-between"
 />
 `;

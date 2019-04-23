@@ -1,10 +1,10 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import "./App.css";
-import Title from "./assets/title.svg";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
 import firestore from "./firestore";
+import MainHeader from "./MainHeader";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
 
@@ -88,15 +88,7 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
 
   return (
     <main className="App">
-      <header className="margin-bottom-regular">
-        <img alt="Designers of Vietnam" src={Title} />
-        <a href="#">
-          <span className="translate-y-50 float-right">🛵</span>
-        </a>
-        <a href="#">
-          <span className="translate-y-50 float-right margin-right-regular">🇻🇳 </span>
-        </a>
-      </header>
+      <MainHeader />
       <section>
         <TagsList
           tags={tags}

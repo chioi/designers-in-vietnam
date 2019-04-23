@@ -24,6 +24,7 @@
   font-weight: normal;
   margin: 0 var(--space-regular);
   z-index: 3;
+  text-transform: uppercase;
 }
 
 .tag canvas {
