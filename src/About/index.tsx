@@ -2,8 +2,9 @@ import { Link, RouteComponentProps } from "@reach/router";
 import React, { FC } from "react";
 import "./About.css";
 
+// TODO: Refactor styles and remove inline styles
 const About: FC<RouteComponentProps> = () => (
-  <div style={{ padding: "0 335px", maxWidth: "574px", margin: "auto" }}>
+  <div className="about-container">
     <section className="margin-bottom-large">
       <h3 className="designer-name">What?</h3>
       <p className="copy">
