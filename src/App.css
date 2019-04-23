@@ -64,6 +64,10 @@ h1 {
   font-size: var(--font-heading-base);
 }
 
+a {
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
   padding: 0 8px;
@@ -114,6 +118,10 @@ h1 {
 
 .margin-right-big {
   margin-right: var(--space-big);
+}
+
+.margin-right-large {
+  margin-right: var(--space-large);
 }
 
 .float-right {

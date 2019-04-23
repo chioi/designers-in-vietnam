@@ -10,7 +10,7 @@ exports[`gets created matches the snapshot 1`] = `
     src="title.svg"
   />
   <a
-    className="header-link margin-right-big"
+    className="header-link margin-right-large"
     href="/about"
   >
     <span>
