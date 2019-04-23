@@ -20,6 +20,7 @@
   --space-regular: 1rem;
   --space-big: 2rem;
   --space-large: 3rem;
+  --color-background: #f5f4f5;
   --color-primary: #2a2a2a;
   --color-primary-light: #767676;
   --font-family-headings: "Libre Baskerville", Palatino, Times;
@@ -29,15 +30,21 @@
 
 html {
   font-size: 16px;
+  padding: var(--space-regular);
+  background-color: #fff;
 }
 
 html,
 body {
   font-family: var(--font-family-normal);
   margin: 0;
-  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 0;
+  background-color: var(--color-background);
 }
 
 code {
@@ -76,7 +83,7 @@ h1 {
 
 @media screen and (min-width: 480px) {
   .App {
-    padding: 48px 103px 48px 103px;
+    padding: 48px 80px 48px 80px;
   }
 }
 
