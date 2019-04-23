@@ -1,3 +1,8 @@
+.title-image {
+  max-width: 428px;
+  width: 100%;
+}
+
 .header-link {
   position: relative;
 }
