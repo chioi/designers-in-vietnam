@@ -2,13 +2,7 @@
 
 exports[`gets created matches the snapshot 1`] = `
 <div
-  style={
-    Object {
-      "margin": "auto",
-      "maxWidth": "574px",
-      "padding": "0 335px",
-    }
-  }
+  className="about-container"
 >
   <section
     className="margin-bottom-large"
