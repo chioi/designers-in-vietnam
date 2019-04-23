@@ -24,6 +24,7 @@
   --color-primary-light: #767676;
   --font-family-headings: "Libre Baskerville", Palatino, Times;
   --font-family-normal: Lato, Helvetica;
+  --screen-medium: 1024px;
 }
 
 html {
@@ -58,7 +59,7 @@ h1 {
 
 .App {
   text-align: center;
-  padding: 48px 103px 48px 103px;
+  padding: 0 8px;
 }
 
 .App ul {
@@ -73,9 +74,9 @@ h1 {
   padding: 0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 480px) {
   .App {
-    padding: 0 8px;
+    padding: 48px 103px 48px 103px;
   }
 }
 
@@ -122,4 +123,8 @@ h1 {
 
 .position-relative {
   position: relative;
+}
+
+.justify-space-between {
+  justify-content: space-between;
 }

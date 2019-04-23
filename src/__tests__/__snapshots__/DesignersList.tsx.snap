@@ -2,7 +2,7 @@
 
 exports[`gets created with designers matches the snapshot 1`] = `
 <div
-  className="horizontal-list padding-vertical-regular"
+  className="horizontal-list padding-vertical-regular justify-space-between"
 >
   <article
     className="designer"
@@ -30,7 +30,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
       </p>
     </div>
     <footer
-      className="designer-info"
+      className="designer-contact"
     >
       <span
         className="margin-right-medium"
@@ -80,7 +80,7 @@ exports[`gets created with designers matches the snapshot 1`] = `
       </p>
     </div>
     <footer
-      className="designer-info"
+      className="designer-contact"
     >
       <span
         className="margin-right-medium"
@@ -109,6 +109,6 @@ exports[`gets created with designers matches the snapshot 1`] = `
 
 exports[`gets created without designers matches the snapshot 1`] = `
 <div
-  className="horizontal-list padding-vertical-regular"
+  className="horizontal-list padding-vertical-regular justify-space-between"
 />
 `;

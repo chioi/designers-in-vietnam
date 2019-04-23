@@ -34,7 +34,7 @@ const Designer = (props: IDesignerProps) => {
         <h3 className="designer-title">{props.designer.title}</h3>
         <p className="designer-bio">{props.designer.bio}</p>
       </div>
-      <footer className="designer-info">
+      <footer className="designer-contact">
         <span className="margin-right-medium">🛵</span>
         <a className="designer-link margin-right-big">Site</a>
         <span className="margin-right-medium">🛵</span>

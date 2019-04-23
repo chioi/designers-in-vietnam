@@ -2,8 +2,6 @@
   width: 100%;
   border-radius: var(--space-small);
   margin-bottom: var(--space-medium);
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  filter: grayscale(1);
 }
 
 .designer-name {
@@ -32,16 +30,21 @@
   font-size: var(--font-regular);
 }
 
-.designer-info {
+.designer-contact {
   text-align: left;
 }
 
 .designer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: var(--space-big);
   padding: var(--space-small);
 }
 
 @media screen and (min-width: 480px) {
   .designer {
+    min-width: 260px;
     max-width: 260px;
   }
 }
