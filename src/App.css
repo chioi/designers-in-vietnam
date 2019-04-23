@@ -64,7 +64,19 @@ h1 {
   font-size: var(--font-heading-base);
 }
 
+p {
+  margin: var(--space-medium) 0;
+}
+
+p, li, span {
+  text-align: left;
+  letter-spacing: 0.1px;
+  line-height: 1.64;
+  font-size: var(--font-regular);
+}
+
 a {
+  text-align: left;
   text-decoration: none;
   color: var(--color-primary);
 }
@@ -73,13 +85,19 @@ a:visited {
   color: var(--color-primary);
 }
 
+.copy {
+  font-size: var(--font-heading-medium);
+}
+
 .App {
   text-align: center;
   padding: 0 8px;
 }
 
-.App ul {
+ul {
+  padding-left: 18px;
   list-style: none;
+  list-style-position: outside;
 }
 
 .horizontal-list {
@@ -147,4 +165,8 @@ a:visited {
 
 .justify-space-between {
   justify-content: space-between;
+}
+
+.underlined-text {
+  text-decoration: underline;
 }

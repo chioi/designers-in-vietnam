@@ -4,30 +4,42 @@ exports[`gets created matches the snapshot 1`] = `
 <div
   style={
     Object {
+      "margin": "auto",
+      "maxWidth": "574px",
       "padding": "0 335px",
     }
   }
 >
-  <section>
+  <section
+    className="margin-bottom-large"
+  >
     <h3
       className="designer-name"
     >
       What?
     </h3>
-    <p>
+    <p
+      className="copy"
+    >
       A Highly curated directory of professionals in the field of Design. Bringing together the Vietnam design community and making the design discipline visible for everyone else.
     </p>
   </section>
-  <section>
+  <section
+    className="margin-bottom-large"
+  >
     <h3
       className="designer-name"
     >
       Why?
     </h3>
-    <p>
+    <p
+      className="copy"
+    >
       Design is good, is our job to make it great!
     </p>
-    <ul>
+    <ul
+      className="about-list"
+    >
       <li>
         Bring designers together.
       </li>
@@ -52,19 +64,31 @@ exports[`gets created matches the snapshot 1`] = `
     </ul>
   </section>
   <section
+    className="margin-bottom-large"
     style={
       Object {
         "display": "flex",
+        "justifyContent": "space-between",
       }
     }
   >
-    <div>
+    <div
+      style={
+        Object {
+          "alignContent": "flex-start",
+          "display": "flex",
+          "flexDirection": "column",
+        }
+      }
+    >
       <h3
         className="designer-name"
       >
         Are you a designer?
       </h3>
-      <p>
+      <p
+        className="copy"
+      >
         Request to be added
       </p>
       <p>
@@ -72,22 +96,34 @@ exports[`gets created matches the snapshot 1`] = `
       </p>
       <a>
         <span
-          className="margin-bottom-big"
+          className="margin-right-regular"
         >
           🛵
         </span>
-        <span>
+        <span
+          className="underlined-text"
+        >
           Join us
         </span>
       </a>
     </div>
-    <div>
+    <div
+      style={
+        Object {
+          "alignContent": "flex-start",
+          "display": "flex",
+          "flexDirection": "column",
+        }
+      }
+    >
       <h3
         className="designer-name"
       >
         Feedback or ideas?
       </h3>
-      <p>
+      <p
+        className="copy"
+      >
         This is just the beginning!
       </p>
       <p>
@@ -95,17 +131,21 @@ exports[`gets created matches the snapshot 1`] = `
       </p>
       <a>
         <span
-          className="margin-bottom-big"
+          className="margin-right-regular"
         >
           🌱
         </span>
-        <span>
+        <span
+          className="underlined-text"
+        >
           Leave feedback
         </span>
       </a>
     </div>
   </section>
-  <section>
+  <section
+    className="margin-bottom-large"
+  >
     <h3
       className="designer-name"
     >
@@ -114,7 +154,9 @@ exports[`gets created matches the snapshot 1`] = `
     <p>
       We are a couple of designers and developers from
        
-      <span>
+      <span
+        className="underlined-text"
+      >
         Wizeline Vietnam
       </span>
        who got a gut feeling and wanted to do something about it!
@@ -126,7 +168,9 @@ exports[`gets created matches the snapshot 1`] = `
     >
       What's next?
     </h3>
-    <ul>
+    <ul
+      className="about-list"
+    >
       <li>
         Get the designer list up and running!
       </li>
