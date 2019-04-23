@@ -3,13 +3,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import About from "./About";
 import App from "./App";
+import MainHeader from "./MainHeader";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <Router>
-    <App path="/" />
-    <About path="/about" />
-  </Router>,
+  <main className="App">
+    <MainHeader />
+    <Router>
+      <App path="/" />
+      <About path="/about" />
+    </Router>
+  </main>,
   document.getElementById("root")
 );
 

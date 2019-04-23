@@ -6,7 +6,9 @@ import "./MainHeader.css";
 const MainHeader = () => {
   return (
     <header className="margin-bottom-regular position-relative">
-      <img alt="Designers of Vietnam" src={Title} className="title-image" />
+      <Link to="/">
+        <img alt="Designers of Vietnam" src={Title} className="title-image" />
+      </Link>
       <Link to="/about" className="header-link margin-right-large">
         <span>🇻🇳</span>
       </Link>
