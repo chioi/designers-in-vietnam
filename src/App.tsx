@@ -7,6 +7,7 @@ import DesignersList from "./DesignersList";
 import firestore from "./firestore";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
+import ReactGA from "react-ga";
 
 interface IFirestoreDocument {
   id?: string;
@@ -86,6 +87,9 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
 
   const selectedDesigners = memoGetSelectedDesigners(selectedTags, designers);
 
+  if (process.env.NODE_ENV === "production") {
+    ReactGA.pageview("/home");
+  }
   return (
     <>
       <section>
