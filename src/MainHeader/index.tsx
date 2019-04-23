@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import React from "react";
 import Title from "../assets/title.svg";
 import "./MainHeader.css";
@@ -5,10 +6,12 @@ import "./MainHeader.css";
 const MainHeader = () => {
   return (
     <header className="margin-bottom-regular position-relative">
-      <img alt="Designers of Vietnam" src={Title} className="title-image"/>
-      <a className="header-link margin-right-large" href="/about">
+      <Link to="/">
+        <img alt="Designers of Vietnam" src={Title} className="title-image" />
+      </Link>
+      <Link to="/about" className="header-link margin-right-large">
         <span>🇻🇳</span>
-      </a>
+      </Link>
       <a className="header-link" href={process.env.REACT_APP_FORM_URL}>
         <span>🛵</span>
       </a>

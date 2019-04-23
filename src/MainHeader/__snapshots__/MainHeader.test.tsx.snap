@@ -12,6 +12,7 @@ exports[`gets created matches the snapshot 1`] = `
   <a
     className="header-link margin-right-large"
     href="/about"
+    onClick={[Function]}
   >
     <span>
       🇻🇳

@@ -1,10 +1,10 @@
+import { RouteComponentProps } from "@reach/router";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import "./App.css";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
 import firestore from "./firestore";
-import MainHeader from "./MainHeader";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
 
@@ -12,7 +12,7 @@ interface IFirestoreDocument {
   id?: string;
 }
 
-interface IAppProps {
+interface IAppProps extends RouteComponentProps {
   initialDesigners?: IDesigner[];
   initialTags?: ITag[];
 }
@@ -87,8 +87,7 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
   const selectedDesigners = memoGetSelectedDesigners(selectedTags, designers);
 
   return (
-    <main className="App">
-      <MainHeader />
+    <>
       <section>
         <TagsList
           tags={tags}
@@ -100,7 +99,7 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
         {error && selectedDesigners === [] && <ConnectionError />}
         <DesignersList designers={selectedDesigners} />
       </section>
-    </main>
+    </>
   );
 };
 
