@@ -35,10 +35,12 @@ const Designer = (props: IDesignerProps) => {
         <p className="designer-bio">{props.designer.bio}</p>
       </div>
       <footer className="designer-contact">
-        <span className="margin-right-medium">🛵</span>
-        <a className="designer-link margin-right-big">Contact</a>
-        <span className="margin-right-medium">🛵</span>
-        <a className="designer-link">Portfolio</a>
+        <a className="designer-link margin-right-big" href={props.designer.urls.social}>
+          <span className="margin-right-medium">🛵</span>Contact
+        </a>
+        <a className="designer-link" href={props.designer.urls.personal}>
+          <span className="margin-right-medium">🛵</span>Portfolio
+        </a>
       </footer>
     </article>
   );

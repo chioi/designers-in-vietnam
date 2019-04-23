@@ -32,24 +32,25 @@ exports[`gets created with designers matches the snapshot 1`] = `
     <footer
       className="designer-contact"
     >
-      <span
-        className="margin-right-medium"
-      >
-        🛵
-      </span>
       <a
         className="designer-link margin-right-big"
       >
+        <span
+          className="margin-right-medium"
+        >
+          🛵
+        </span>
         Contact
       </a>
-      <span
-        className="margin-right-medium"
-      >
-        🛵
-      </span>
       <a
         className="designer-link"
+        href="www.google.com"
       >
+        <span
+          className="margin-right-medium"
+        >
+          🛵
+        </span>
         Portfolio
       </a>
     </footer>
@@ -82,24 +83,25 @@ exports[`gets created with designers matches the snapshot 1`] = `
     <footer
       className="designer-contact"
     >
-      <span
-        className="margin-right-medium"
-      >
-        🛵
-      </span>
       <a
         className="designer-link margin-right-big"
       >
+        <span
+          className="margin-right-medium"
+        >
+          🛵
+        </span>
         Contact
       </a>
-      <span
-        className="margin-right-medium"
-      >
-        🛵
-      </span>
       <a
         className="designer-link"
+        href="www.facebook.com"
       >
+        <span
+          className="margin-right-medium"
+        >
+          🛵
+        </span>
         Portfolio
       </a>
     </footer>
