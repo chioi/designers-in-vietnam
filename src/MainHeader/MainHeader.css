@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.header-link span {
+  font-size: var(--font-header-icon);
+}
+
 @media screen and (min-width: 480px) {
   .header-link {
     position: absolute;

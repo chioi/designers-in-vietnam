@@ -15,6 +15,7 @@
   --font-small: calc(
     var(--font-base) - var(--unit) - var(--unit) - var(--unit)
   );
+  --font-header-icon: 22px;
   --space-small: 0.25rem;
   --space-medium: 0.5rem;
   --space-regular: 1rem;
