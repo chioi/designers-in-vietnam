@@ -20,7 +20,7 @@
   color: var(--color-primary-light);
   display: flex;
   position: relative;
-  font-size: var(--font-heading-medium);
+  font-size: var(--font-regular);
   font-weight: normal;
   margin: 0 var(--space-regular);
   z-index: 3;
