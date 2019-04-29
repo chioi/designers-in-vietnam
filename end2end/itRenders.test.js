@@ -12,7 +12,8 @@ describe("renders without crashing", () => {
     const page = await browser.newPage();
     await page.goto("http://designers-of-vietnam-prod");
     titleImage = await page.waitForSelector(".title-image");
-    jest.setTimeout(10000);
+    await console.log(await page.content());
+    console.log(titleImage);
   });
 
   test("There is a title image", async () => {
