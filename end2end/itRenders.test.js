@@ -16,7 +16,7 @@ describe("renders without crashing", () => {
 
   test("There is a title image", async () => {
     expect(titleImage).toBeDefined();
-  });
+  }, 2000);
 
   afterAll(async () => {
     await browser.close();
