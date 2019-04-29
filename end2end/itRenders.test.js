@@ -12,11 +12,12 @@ describe("renders without crashing", () => {
     const page = await browser.newPage();
     await page.goto("http://designers-of-vietnam-prod");
     titleImage = await page.waitForSelector(".title-image");
+    jest.setTimeout(10000);
   });
 
   test("There is a title image", async () => {
     expect(titleImage).toBeDefined();
-  }, 2000);
+  });
 
   afterAll(async () => {
     await browser.close();
