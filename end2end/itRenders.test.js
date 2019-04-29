@@ -2,21 +2,26 @@ const puppeteer = require("puppeteer");
 
 describe("renders without crashing", () => {
   let browser;
-  let titleImage;
+  let title;
+  let page;
 
   beforeAll(async () => {
     browser = await puppeteer.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: "google-chrome-unstable",
       headless: true
     });
-    const page = await browser.newPage();
-    await page.goto("http://designers-of-vietnam-prod");
-    titleImage = await page.waitForSelector(".title-image");
-  });
+    page = await browser.newPage();
+  }, 40000);
 
-  test("There is a title image", async () => {
-    expect(titleImage).toBeDefined();
-  });
+  test("There is a title", async () => {
+    await page.goto("http://designers-of-vietnam-prod", { waitUntil: "load" });
+    title = await page.waitForSelector("title");
+    const titleText = await page.evaluate(
+      () => document.querySelector("title").innerText
+    );
+    expect(title).toBeDefined();
+    expect(titleText).toEqual("Designers of Vietnam");
+  }, 60000);
 
   afterAll(async () => {
     await browser.close();

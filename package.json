@@ -1,6 +1,7 @@
 {
   "name": "designers-in-vietnam",
   "version": "0.1.0",
+  "license": "MIT",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "firebase": "^5.9.4",
@@ -15,7 +16,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "travis deploy",
-    "lint": "yarn tslint 'src/**/*.ts' 'src/**/*.tsx'"
+    "lint": "yarn tslint 'src/**/*.ts' 'src/**/*.tsx'",
+    "end2end": "docker-compose -f docker-compose-end2end.yml run end-to-end-tests"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,6 +29,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@firebase/app-types": "^0.3.9",
+    "@firebase/util": "^0.2.13",
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.4",
     "@types/reach__router": "^1.2.4",
@@ -36,6 +40,7 @@
     "firebase-tools": "^6.7.0",
     "jest-canvas-mock": "^2.0.0-beta.1",
     "prettier": "^1.17.0",
+    "prop-types": "^15.7.2",
     "react-test-renderer": "^16.8.6",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
