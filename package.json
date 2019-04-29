@@ -15,7 +15,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "travis deploy",
-    "lint": "yarn tslint 'src/**/*.ts' 'src/**/*.tsx'"
+    "lint": "yarn tslint 'src/**/*.ts' 'src/**/*.tsx'",
+    "end2end": "docker-compose -f docker-compose-end2end.yml run end-to-end-tests"
   },
   "eslintConfig": {
     "extends": "react-app"
