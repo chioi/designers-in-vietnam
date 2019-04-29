@@ -1,0 +1,4 @@
+# install dependencies
+FROM buildkite/puppeteer:latest
+RUN yarn add jest jest-puppeteer
+ENV  PATH="${PATH}:/node_modules/.bin"

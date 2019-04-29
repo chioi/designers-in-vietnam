@@ -1,0 +1,8 @@
+{
+  "name": "designers-of-vietnam-end2end",
+  "version": "1.0.0",
+  "description": "End to end tests for Designers of Vietnam",
+  "main": "index.js",
+  "author": "Mario Gil",
+  "license": "MIT"
+}

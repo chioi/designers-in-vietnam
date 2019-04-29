@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  designers-of-vietnam-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    expose:
+      - 80
+
+  end-to-end-tests:
+    tty: true
+    stdin_open: true
+    volumes:
+      - "./end2end:/end2end"
+    command: "wait-for-it.sh designers-of-vietnam-prod:80 -- jest .
+    --detectOpenHandles --ci"
+    links:
+      - designers-of-vietnam-prod
+    build:
+      context: .
+      dockerfile: Dockerfile-end2end
