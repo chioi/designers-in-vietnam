@@ -5,7 +5,7 @@ import "./App.css";
 import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
-import firestore from "./firestore";
+import { firestore } from "./firebase";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
 

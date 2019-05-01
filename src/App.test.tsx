@@ -14,6 +14,8 @@ import TagsList from "./TagsList";
 import { designers as initialDesigners } from "./testData/designers";
 import mockTags from "./testData/tags";
 
+jest.mock("./firebase");
+
 describe("gets created", () => {
   describe.skip("has error", () => {
     // TODO: Find out how to mock an error
@@ -38,8 +40,8 @@ describe("gets created", () => {
     let designers: ReactTestInstance[];
 
     beforeAll(() => {
-      // TODO: Remove the next line and fix whatever happens
-      jest.unmock("./firestore.ts");
+      // TODO: I don't think the component creation should be wrapped in act()
+      // there is a discussion here https://github.com/facebook/react/issues/14769
       component = create(
         <App initialDesigners={initialDesigners} initialTags={mockTags} />
       );
@@ -56,8 +58,6 @@ describe("gets created", () => {
       let tag: ReactTestInstance;
 
       beforeAll(() => {
-        /* TODO: Optimize this test. I suspect the lookup by props takes
-            a lot of time. */
         tagsList = component.root.findByType(TagsList);
         tag = tagsList.findByProps({ id: "Writer-tag" });
         act(() => {

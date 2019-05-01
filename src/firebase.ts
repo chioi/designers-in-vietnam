@@ -11,6 +11,8 @@ const config = {
   storageBucket: process.env.REACT_APP_FIRESTORE_STORAGE_BUCKET
 };
 
-firebase.initializeApp(config);
+export const app = firebase.initializeApp(config);
 
-export default firebase.firestore();
+export const firestore = app.firestore();
+
+export default app;
