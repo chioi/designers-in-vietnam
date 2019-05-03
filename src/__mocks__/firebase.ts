@@ -3,6 +3,13 @@ import tags from "../testData/tags";
 
 const collection = (name: string) => {
   const collections: { [index: string]: any } = {
+    people: {
+      get: () => {
+        return new Promise(resolve => {
+          resolve(designers);
+        });
+      }
+    },
     tags: {
       get: () => {
         return new Promise(resolve => {
@@ -10,13 +17,6 @@ const collection = (name: string) => {
         });
       }
     },
-    people: {
-      get: () => {
-        return new Promise(resolve => {
-          resolve(designers);
-        });
-      }
-    }
   };
 
   return collections[name];
