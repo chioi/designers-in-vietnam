@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { storage } from "./firebase";
 
 export interface IDesigner {
   id?: string;
@@ -35,7 +36,10 @@ const Designer = (props: IDesignerProps) => {
         <p className="designer-bio">{props.designer.bio}</p>
       </div>
       <footer className="designer-contact">
-        <a className="designer-link margin-right-big" href={props.designer.urls.social}>
+        <a
+          className="designer-link margin-right-big"
+          href={props.designer.urls.social}
+        >
           <span className="margin-right-medium">👋</span>Contact
         </a>
         <a className="designer-link" href={props.designer.urls.personal}>
