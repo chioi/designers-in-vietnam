@@ -75,7 +75,7 @@ const App: FC<IAppProps> = ({ initialDesigners = [], initialTags = [] }) => {
   }, []);
 
   useEffect(() => {
-    fetchFromFirestore<IDesigner>("people")
+    fetchFromFirestore<IDesigner>(process.env.REACT_APP_PEOPLE_COLLECTION || "")
       .then(saveDesigners)
       .catch(saveError);
   }, []);
