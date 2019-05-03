@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  designers-of-vietnam-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+
+  end-to-end-tests:
+    cap_add:
+      - SYS_ADMIN
+    tty: true
+    stdin_open: true
+    command: "wait-for-it designers-of-vietnam-prod:80 -- jest .
+      --ci --runInBand"
+    volumes:
+      - "./end2end:/end2end"
+    links:
+      - designers-of-vietnam-prod
+    build:
+      context: .
+      dockerfile: Dockerfile-end2end

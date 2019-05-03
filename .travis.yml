@@ -1,10 +1,16 @@
 language: node_js
 node_js: 10.15.1
+dist: trusty
+sudo: required
+addons:
+  chrome: stable
 jobs:
   include:
     - stage: lint
       name: lint
       script: yarn lint
+    - stage: End 2 end testing
+      script: yarn end2end
     - stage: deploy to production
       script: yarn build
       before_deploy: "echo 'listing build' && ls build"
