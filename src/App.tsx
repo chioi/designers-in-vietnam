@@ -8,6 +8,7 @@ import DesignersList from "./DesignersList";
 import { firestore } from "./firebase";
 import { ITag } from "./Tag";
 import TagsList from "./TagsList";
+import "./global.sass";
 
 interface IFirestoreDocument {
   id?: string;
