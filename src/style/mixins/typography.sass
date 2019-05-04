@@ -4,3 +4,12 @@
     h#{$i}
       font-size: $font-sizes[$final - $i]
 
+=fonts($font-sizes)
+  @each $size, $stop in $font-sizes
+    %font-#{$size}
+      font-size: $stop
+
+=weights($weights)
+  @each $weight, $stop in $weights
+    %font-#{$weight}
+      font-weight: $stop
