@@ -13,3 +13,8 @@
   @each $weight, $stop in $weights
     %font-#{$weight}
       font-weight: $stop
+
+=families($font-families)
+  @each $name, $family in $font-families
+    %font-#{$name}
+      font-family: $family

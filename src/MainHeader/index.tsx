@@ -10,7 +10,7 @@ const MainHeader = () => {
         <a className="header-link" href={process.env.REACT_APP_FORM_URL}>
           <span>🛵</span>
         </a>
-        <Link to="/about" className="header-link margin-right-big">
+        <Link to="/about" className="header-link margin-right-regular">
           <span>🇻🇳</span>
         </Link>
       </div>

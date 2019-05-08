@@ -7,104 +7,124 @@ exports[`gets created with designers matches the snapshot 1`] = `
   <article
     className="designer"
   >
-    <div>
+    <div
+      className="designer-wrapper"
+    >
       <img
         alt="Mario Gil's portrait"
         className="designer-portrait"
         src=""
       />
-      <h2
-        className="designer-name"
+      <div
+        className="designer-body"
       >
-        Mario Gil
-      </h2>
-      <h3
-        className="designer-title"
-      >
-        UX designer
-      </h3>
-      <p
-        className="designer-bio"
-      >
-        Mexican Engineer
-      </p>
+        <header
+          className="designer-header"
+        >
+          <h2
+            className="designer-name"
+          >
+            Mario Gil
+          </h2>
+          <h3
+            className="designer-title"
+          >
+            UX designer
+          </h3>
+        </header>
+        <p
+          className="designer-bio"
+        >
+          Mexican Engineer
+        </p>
+        <footer
+          className="designer-contact"
+        >
+          <a
+            className="designer-link"
+          >
+            <span
+              className="margin-right-tiny"
+            >
+              👋
+            </span>
+            Contact
+          </a>
+          <a
+            className="designer-link"
+            href="www.google.com"
+          >
+            <span
+              className="margin-right-tiny"
+            >
+              🌐
+            </span>
+            Portfolio
+          </a>
+        </footer>
+      </div>
     </div>
-    <footer
-      className="designer-contact"
-    >
-      <a
-        className="designer-link margin-right-big"
-      >
-        <span
-          className="margin-right-medium"
-        >
-          👋
-        </span>
-        Contact
-      </a>
-      <a
-        className="designer-link"
-        href="www.google.com"
-      >
-        <span
-          className="margin-right-medium"
-        >
-          🌐
-        </span>
-        Portfolio
-      </a>
-    </footer>
   </article>
   <article
     className="designer"
   >
-    <div>
+    <div
+      className="designer-wrapper"
+    >
       <img
         alt="Chankrisna Visna's portrait"
         className="designer-portrait"
         src=""
       />
-      <h2
-        className="designer-name"
+      <div
+        className="designer-body"
       >
-        Chankrisna Visna
-      </h2>
-      <h3
-        className="designer-title"
-      >
-        Chatbot Script Designer
-      </h3>
-      <p
-        className="designer-bio"
-      >
-        I decide what the internet robots speak like
-      </p>
+        <header
+          className="designer-header"
+        >
+          <h2
+            className="designer-name"
+          >
+            Chankrisna Visna
+          </h2>
+          <h3
+            className="designer-title"
+          >
+            Chatbot Script Designer
+          </h3>
+        </header>
+        <p
+          className="designer-bio"
+        >
+          I decide what the internet robots speak like
+        </p>
+        <footer
+          className="designer-contact"
+        >
+          <a
+            className="designer-link"
+          >
+            <span
+              className="margin-right-tiny"
+            >
+              👋
+            </span>
+            Contact
+          </a>
+          <a
+            className="designer-link"
+            href="www.facebook.com"
+          >
+            <span
+              className="margin-right-tiny"
+            >
+              🌐
+            </span>
+            Portfolio
+          </a>
+        </footer>
+      </div>
     </div>
-    <footer
-      className="designer-contact"
-    >
-      <a
-        className="designer-link margin-right-big"
-      >
-        <span
-          className="margin-right-medium"
-        >
-          👋
-        </span>
-        Contact
-      </a>
-      <a
-        className="designer-link"
-        href="www.facebook.com"
-      >
-        <span
-          className="margin-right-medium"
-        >
-          🌐
-        </span>
-        Portfolio
-      </a>
-    </footer>
   </article>
 </div>
 `;
