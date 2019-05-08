@@ -3,17 +3,17 @@ import tags from "../testData/tags";
 
 const collection = (name: string) => {
   const collections: { [index: string]: any } = {
-    "test-people": {
-      get: () => {
-        return new Promise(resolve => {
-          resolve(designers);
-        });
-      }
-    },
     tags: {
       get: () => {
         return new Promise(resolve => {
           resolve(tags);
+        });
+      }
+    },
+    "test-people": {
+      get: () => {
+        return new Promise(resolve => {
+          resolve(designers);
         });
       }
     },
