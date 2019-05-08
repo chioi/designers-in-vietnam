@@ -14,7 +14,7 @@ const MainHeader = () => {
           <span>🇻🇳</span>
         </Link>
       </div>
-      <div className="main-header-block">
+      <div className="logo main-header-block">
         <Link to="/">
           <img alt="Designers of Vietnam" src={Title} className="title-image" />
         </Link>

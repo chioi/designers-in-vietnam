@@ -1,7 +1,7 @@
 import React from "react";
 import { create, ReactTestRenderer } from "react-test-renderer";
 import { ITag } from "../Tag";
-import TagsList from "../TagsList";
+import TagsList from "../TagList";
 
 const tags: ITag[] = [
   {

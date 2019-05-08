@@ -12,13 +12,12 @@
   @extend %padding-right-regular
   @extend %padding-bottom-regular
   @extend %padding-left-regular
+  flex: 1
+  min-width: 260px
 
-/* This number is empirical and it signals the moment when
-/* two cards can fit in a row.
-@media screen and (min-width: 728px)
+@media screen and (min-width: 360px)
   .designer
-    min-width: 260px
-    max-width: 260px
+    max-width: 360px
 
 .designer-wrapper
   @extend %padding-tiny

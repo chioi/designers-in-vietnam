@@ -25,7 +25,7 @@ exports[`gets created matches the snapshot 1`] = `
     </a>
   </div>
   <div
-    className="main-header-block"
+    className="logo main-header-block"
   >
     <a
       aria-current="page"

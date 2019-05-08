@@ -17,19 +17,14 @@
   @extend %font-big
 
 .main-navigation
+  position: relative
   display: inline-block
-  min-width: 320px
 
 .main-header-block
   @extend %padding-vertical-small
   @extend %padding-horizontal-regular
-  float: right
 
-@media screen and (min-width: 1280px)
-  .logo-container
-    min-width: 604px
-
-@media screen and (min-width: 1440px)
+@media screen and (min-width: 1024px)
   .main-navigation
-    min-width: unset
-
+    position: absolute
+    right: 0
