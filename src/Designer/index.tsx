@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { storage } from "../firebase";
 import "./Designer.sass";
+import Link from "./Link";
 
 export interface IDesigner {
   id?: string;
@@ -39,12 +40,12 @@ const Designer = (props: IDesignerProps) => {
           </header>
           <p className="designer-bio">{props.designer.bio}</p>
           <footer className="designer-contact">
-            <a className="designer-link" href={props.designer.urls.social}>
+            <Link url={props.designer.urls.social}>
               <span className="margin-right-tiny">👋</span>Contact
-            </a>
-            <a className="designer-link" href={props.designer.urls.personal}>
+            </Link>
+            <Link url={props.designer.urls.personal}>
               <span className="margin-right-tiny">🌐</span>Portfolio
-            </a>
+            </Link>
           </footer>
         </div>
       </div>

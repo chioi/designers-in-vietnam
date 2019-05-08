@@ -43,23 +43,31 @@ exports[`gets created with designers matches the snapshot 1`] = `
           <a
             className="designer-link"
           >
-            <span
-              className="margin-right-tiny"
+            <div
+              className="display-flex align-items-center"
             >
-              👋
-            </span>
-            Contact
+              <span
+                className="margin-right-tiny"
+              >
+                👋
+              </span>
+              Contact
+            </div>
           </a>
           <a
             className="designer-link"
             href="www.google.com"
           >
-            <span
-              className="margin-right-tiny"
+            <div
+              className="display-flex align-items-center"
             >
-              🌐
-            </span>
-            Portfolio
+              <span
+                className="margin-right-tiny"
+              >
+                🌐
+              </span>
+              Portfolio
+            </div>
           </a>
         </footer>
       </div>
@@ -104,23 +112,31 @@ exports[`gets created with designers matches the snapshot 1`] = `
           <a
             className="designer-link"
           >
-            <span
-              className="margin-right-tiny"
+            <div
+              className="display-flex align-items-center"
             >
-              👋
-            </span>
-            Contact
+              <span
+                className="margin-right-tiny"
+              >
+                👋
+              </span>
+              Contact
+            </div>
           </a>
           <a
             className="designer-link"
             href="www.facebook.com"
           >
-            <span
-              className="margin-right-tiny"
+            <div
+              className="display-flex align-items-center"
             >
-              🌐
-            </span>
-            Portfolio
+              <span
+                className="margin-right-tiny"
+              >
+                🌐
+              </span>
+              Portfolio
+            </div>
           </a>
         </footer>
       </div>

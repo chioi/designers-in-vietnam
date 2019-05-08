@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When it gets created matches the snapshot 1`] = `
+<a
+  className="designer-link"
+  href="www.test.url"
+>
+  <div
+    className="display-flex align-items-center"
+  >
+    Test Link
+  </div>
+</a>
+`;
