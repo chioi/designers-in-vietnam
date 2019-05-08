@@ -3,7 +3,7 @@ import tags from "../testData/tags";
 
 const collection = (name: string) => {
   const collections: { [index: string]: any } = {
-    people: {
+    "test-people": {
       get: () => {
         return new Promise(resolve => {
           resolve(designers);
