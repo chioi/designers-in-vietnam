@@ -2,7 +2,7 @@
 
 exports[`gets created gets clicked matches the snapshot 1`] = `
 <li
-  className="tag tag--selected"
+  className="tag selected"
 >
   <label
     className="tag-content"
