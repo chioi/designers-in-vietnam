@@ -7,7 +7,7 @@ import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
 import { firestore } from "./firebase";
 import { ITag } from "./Tag";
-import TagsList from "./TagsList";
+import TagsList from "./TagList";
 import "./global.sass";
 
 interface IFirestoreDocument {

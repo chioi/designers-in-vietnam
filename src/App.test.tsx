@@ -10,7 +10,7 @@ import ConnectionError from "./ConnectionError";
 import Designer from "./Designer";
 import DesignersList from "./DesignersList";
 import { ITag } from "./Tag";
-import TagsList from "./TagsList";
+import TagsList from "./TagList";
 import { designers as initialDesigners } from "./testData/designers";
 import mockTags from "./testData/tags";
 
