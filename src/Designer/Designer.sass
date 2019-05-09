@@ -1,0 +1,80 @@
+@import "../style/variables"
+@import "../style/mixins/space"
+@import "../style/mixins/typography"
+@include padding-placeholders($space)
+@include margin-placeholders($space)
+@include fonts($font-sizes)
+@include weights($font-weight)
+@include families($font-family)
+
+.designer
+  @extend %padding-top-tiny
+  @extend %padding-right-regular
+  @extend %padding-bottom-regular
+  @extend %padding-left-regular
+  flex: 1
+  min-width: 260px
+
+@media screen and (min-width: 360px)
+  .designer
+    max-width: 360px
+
+.designer-wrapper
+  @extend %padding-tiny
+
+.designer-portrait
+  @extend %padding-bottom-tiny
+  width: 100%
+  border-radius: var(--space-small)
+
+.designer-name,
+.designer-title
+  margin: 0
+
+.designer-name,
+.designer-title,
+.designer-bio,
+.designer-contact
+  text-align: left
+
+.designer-header,
+.designer-bio
+  @extend %margin-vertical-tiny
+
+.designer-name
+  @extend %font-black
+  @extend %font-large
+  @extend %font-sans
+
+.designer-title
+  @extend %font-normal
+  @extend %font-regular
+  @extend %font-sans-alt
+
+.designer-bio,
+.designer-link
+  @extend %font-tiny
+
+.designer-link
+  @extend %padding-vertical-tiny
+
+.designer-body,
+.designer-link,
+.designer-bio
+  flex: 1
+
+.designer,
+.designer-wrapper,
+.designer-body,
+.designer-contact
+  display: flex
+
+.designer-wrapper,
+.designer-body
+  flex-direction: column
+  justify-content: space-between
+
+.designer-bio
+  @extend %margin-bottom-regular
+  letter-spacing: 0.1px
+  line-height: 1.64

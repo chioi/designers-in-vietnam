@@ -1,0 +1,76 @@
+=margin-placeholders($space)
+  @each $label, $stop in $space
+    %margin-#{$label}
+      margin: $stop
+    %margin-top-#{$label}
+      margin-top: $stop
+    %margin-right-#{$label}
+      margin-right: $stop
+    %margin-bottom-#{$label}
+      margin-bottom: $stop
+    %margin-left-#{$label}
+      margin-left: $stop
+    %margin-vertical-#{$label}
+      margin-top: $stop
+      margin-bottom: $stop
+    %margin-horizontal-#{$label}
+      margin-left: $stop
+      margin-right: $stop
+
+=margins($space)
+  @each $label, $stop in $space
+    .margin-#{$label}
+      margin: $stop
+    .margin-top-#{$label}
+      margin-top: $stop
+    .margin-right-#{$label}
+      margin-right: $stop
+    .margin-bottom-#{$label}
+      margin-bottom: $stop
+    .margin-left-#{$label}
+      margin-left: $stop
+    .margin-vertical-#{$label}
+      margin-top: $stop
+      margin-bottom: $stop
+    .margin-horizontal-#{$label}
+      margin-left: $stop
+      margin-right: $stop
+
+=padding-placeholders($space)
+  @each $label, $stop in $space
+    %padding-#{$label}
+      padding: $stop
+    %padding-top-#{$label}
+      padding-top: $stop
+    %padding-right-#{$label}
+      padding-right: $stop
+    %padding-bottom-#{$label}
+      padding-bottom: $stop
+    %padding-left-#{$label}
+      padding-left: $stop
+    %padding-vertical-#{$label}
+      padding-top: $stop
+      padding-bottom: $stop
+    %padding-horizontal-#{$label}
+      padding-left: $stop
+      padding-right: $stop
+
+=paddings($space)
+  @each $label, $stop in $space
+    .padding-#{$label}
+      padding: $stop
+    .padding-top-#{$label}
+      padding-top: $stop
+    .padding-right-#{$label}
+      padding-right: $stop
+    .padding-bottom-#{$label}
+      padding-bottom: $stop
+    .padding-left-#{$label}
+      padding-left: $stop
+    .padding-vertical-#{$label}
+      padding-top: $stop
+      padding-bottom: $stop
+    .padding-horizontal-#{$label}
+      padding-left: $stop
+      padding-right: $stop
+

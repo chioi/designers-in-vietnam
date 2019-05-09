@@ -2,7 +2,7 @@
 
 exports[`gets created with tags matches the snapshot 1`] = `
 <ul
-  className="horizontal-list"
+  className="tag-list horizontal-list"
 >
   <li
     className="tag"
@@ -25,6 +25,6 @@ exports[`gets created with tags matches the snapshot 1`] = `
 
 exports[`gets created without tags matches the snapshot 1`] = `
 <ul
-  className="horizontal-list"
+  className="tag-list horizontal-list"
 />
 `;

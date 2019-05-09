@@ -1,0 +1,42 @@
+@import "style/variables"
+@import "style/mixins/space"
+@import "style/mixins/typography"
+@import "style/mixins/color"
+@include padding-placeholders($space)
+@include fonts($font-sizes)
+@include colors($color)
+@include weights($font-weight)
+
+.tag
+  @extend %font-tiny
+  @extend %color-gray
+  text-transform: uppercase
+  display: flex
+  position: relative
+  z-index: 3
+
+.tag.selected
+  @extend %color-black
+  @extend %font-bold
+
+.tag.selected canvas
+  transition: opacity 0.1s
+  opacity: 1
+
+.tag canvas
+  transition: opacity 0.5s
+  opacity: 0
+  z-index: 1
+
+.tag input
+  visibility: hidden
+  position: absolute
+
+.tag-content
+  @extend %padding-vertical-tiny
+  @extend %padding-horizontal-regular
+  user-select: none
+  z-index: 2
+
+.tag-content:hover
+  cursor: pointer

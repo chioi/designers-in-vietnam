@@ -1,0 +1,30 @@
+@import "../style/variables"
+@import "../style/mixins/space"
+@import "../style/mixins/typography"
+@include padding-placeholders($space)
+@include fonts($font-sizes)
+
+.title-image
+  max-width: 428px
+  width: 100%
+
+.header-link
+  @extend %padding-vertical-regular
+  @extend %padding-horizontal-small
+  float: right
+
+.header-link span
+  @extend %font-big
+
+.main-navigation
+  position: relative
+  display: inline-block
+
+.main-header-block
+  @extend %padding-vertical-small
+  @extend %padding-horizontal-regular
+
+@media screen and (min-width: 1024px)
+  .main-navigation
+    position: absolute
+    right: 0

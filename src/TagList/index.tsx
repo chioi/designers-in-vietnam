@@ -1,5 +1,6 @@
 import React from "react";
-import Tag, { ITag } from "./Tag";
+import Tag, { ITag } from "../Tag";
+import "./TagList.sass";
 
 interface ITagsListProps {
   tags: ITag[];
@@ -16,7 +17,7 @@ const TagsList = (props: ITagsListProps) => {
       isSelected={props.selectedTags.has(tag.name)}
     />
   ));
-  return <ul className="horizontal-list">{tagWrappers}</ul>;
+  return <ul className="tag-list horizontal-list">{tagWrappers}</ul>;
 };
 
 export default TagsList;

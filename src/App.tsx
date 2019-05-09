@@ -6,8 +6,9 @@ import ConnectionError from "./ConnectionError";
 import { IDesigner } from "./Designer";
 import DesignersList from "./DesignersList";
 import { firestore } from "./firebase";
+import "./global.sass";
 import { ITag } from "./Tag";
-import TagsList from "./TagsList";
+import TagsList from "./TagList";
 
 interface IFirestoreDocument {
   id?: string;

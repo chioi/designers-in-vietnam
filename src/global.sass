@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400");
+@import "style/variables"
+@import "style/mixins/space"
+@import "style/mixins/typography"
+
+@include margins($space)
+@include paddings($space)
+@include headings($font-stops)
+
+html
+  font-size: map-get($font-sizes, regular)
+  padding: map-get($space, regular)
+  background-color: map-get($color, white)
+  text-align: left
+
+html,
+body
+  font-family: map-get($font-family, sans)
+  font-size: map-get($font-sizes, small)
+  margin: 0
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+body
+  padding: 0
+  background-color: var(--color-background)
+
+code
+  font-family: map-get($font-family, mono)
+
+ul
+  padding-left: map-get($space, regular)
+  list-style-position: outside
+  list-style: none
+
+h1,
+h2,
+h3,
+h4,
+p
+  margin-top: map-get($space, regular)
+  margin-bottom: map-get($space, regular)
+
+h1,
+h2,
+h3,
+h4
+  font-weight: normal
+  font-family: map-get($font-family, sans-alt)
+
+a,
+a:visited
+  text-decoration: none
+  color: var(--color-primary)
+
+.copy
+  font-size: map-get($font-sizes, small)
+
+.float-right
+  float: right
+
+.float-left
+  float: left
+
+.translate-y-50
+  -webkit-transform: translateY(50%)
+  -moz-transform: translateY(50%)
+  -ms-transform: translateY(50%)
+  -o-transform: translateY(50%)
+  transform: translateY(50%)
+
+.position-relative
+  position: relative
+
+.justify-flex-end
+  justify-content: flex-end
+
+.justify-space-between
+  justify-content: space-between
+
+.align-items-center
+  align-items: center
+
+.underlined-text
+  text-decoration: underline
+
+.horizontal-list
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  padding: 0
+
+.display-flex
+  display: flex
+
+.clearfix
+  overflow: auto
+  content: ""
+  clear: both

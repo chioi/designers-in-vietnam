@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900|Libre+Baskerville:400,700");
-
 :root {
   --font-base: 1rem;
   --unit: 2px;
@@ -21,6 +19,7 @@
   --space-regular: 1rem;
   --space-big: 2rem;
   --space-large: 3rem;
+  --space-huge: 5rem;
   --color-background: #f5f4f5;
   --color-primary: #2a2a2a;
   --color-primary-light: #767676;
@@ -29,145 +28,14 @@
   --screen-medium: 1024px;
 }
 
-html {
-  font-size: 16px;
-  padding: var(--space-regular);
-  background-color: #fff;
-}
-
-html,
-body {
-  font-family: var(--font-family-normal);
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  padding: 0;
-  background-color: var(--color-background);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: normal;
-  margin: var(--space-medium) 0;
-  font-family: var(--font-family-headings);
-}
-
-h1 {
-  font-size: var(--font-heading-base);
-}
-
-p {
-  margin: var(--space-medium) 0;
-}
-
-p, li, span {
-  text-align: left;
-  letter-spacing: 0.1px;
-  line-height: 1.64;
-  font-size: var(--font-regular);
-}
-
-a {
-  text-align: left;
-  text-decoration: none;
-  color: var(--color-primary);
-}
-
-a:visited {
-  color: var(--color-primary);
-}
-
-.copy {
-  font-size: var(--font-heading-medium);
-}
-
 .App {
   text-align: center;
   padding: 0 8px;
 }
 
-ul {
-  padding-left: 18px;
-  list-style: none;
-  list-style-position: outside;
-}
-
-.horizontal-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-}
-
 @media screen and (min-width: 480px) {
   .App {
-    padding: 48px 80px 48px 80px;
+    padding: var(--space-big) var(--space-huge);
   }
 }
 
-.padding-vertical-regular {
-  padding-top: var(--space-regular);
-  padding-bottom: var(--space-regular);
-}
-
-.margin-bottom-regular {
-  margin-bottom: var(--space-regular);
-}
-
-.margin-bottom-big {
-  margin-bottom: var(--space-big);
-}
-
-.margin-bottom-large {
-  margin-bottom: var(--space-large);
-}
-
-.margin-right-medium {
-  margin-right: var(--space-medium);
-}
-
-.margin-right-regular {
-  margin-right: var(--space-regular);
-}
-
-.margin-right-big {
-  margin-right: var(--space-big);
-}
-
-.margin-right-large {
-  margin-right: var(--space-large);
-}
-
-.float-right {
-  float: right;
-}
-
-.translate-y-50 {
-  -webkit-transform: translateY(50%);
-  -moz-transform: translateY(50%);
-  -ms-transform: translateY(50%);
-  -o-transform: translateY(50%);
-  transform: translateY(50%);
-}
-
-.position-relative {
-  position: relative;
-}
-
-.justify-space-between {
-  justify-content: space-between;
-}
-
-.underlined-text {
-  text-decoration: underline;
-}

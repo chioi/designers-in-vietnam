@@ -1,0 +1,13 @@
+@import "../style/variables"
+@import "../style/mixins/space"
+@include margin-placeholders($space)
+
+.tag-list
+  @extend %margin-top-small
+  @extend %margin-bottom-regular
+
+@media screen and (min-width: 1028px)
+  .tag-list
+    margin-right: auto
+    margin-left: auto
+    max-width: 604px

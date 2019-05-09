@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect, useRef } from "react";
 import Brushstroke from "./brushstroke";
-import "./Tag.css";
+import "./Tag.sass";
 
 export interface ITag {
   id?: string;
@@ -75,7 +75,7 @@ const Tag = (props: ITagProps) => {
   }, []);
 
   return (
-    <li ref={ref} className={`tag${props.isSelected ? " tag--selected" : ""}`}>
+    <li ref={ref} className={`tag${props.isSelected ? " selected" : ""}`}>
       <label
         id={id}
         htmlFor={`${props.tag.name}-input`}
