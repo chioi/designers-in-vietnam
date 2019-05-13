@@ -1,0 +1,16 @@
+@import "../style/variables"
+@import "../style/mixins/space"
+@include padding-placeholders($space)
+
+.about-list
+  list-style: initial
+  line-height: 26px
+
+.about-container
+  @extend %padding-top-big
+  max-width: 574px
+  margin: auto
+
+@media screen and (min-width: 1114px)
+  .about-container
+    padding: 0 335px

@@ -3,9 +3,9 @@
 @import "../style/mixins/typography"
 @include padding-placeholders($space)
 @include margin-placeholders($space)
-@include fonts($font-sizes)
-@include weights($font-weight)
-@include families($font-family)
+@include font-size-placeholders($font-sizes)
+@include font-weight-placeholders($font-weights)
+@include font-family-placeholders($font-families)
 
 .designer
   @extend %padding-top-tiny

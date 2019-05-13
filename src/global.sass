@@ -6,17 +6,22 @@
 @include margins($space)
 @include paddings($space)
 @include headings($font-stops)
+@include font-size-placeholders($font-sizes)
+@include font-family-placeholders($font-families)
+@include font-weight-placeholders($font-weights)
+@include margin-placeholders($space)
+@include padding-placeholders($space)
 
 html
-  font-size: map-get($font-sizes, regular)
-  padding: map-get($space, regular)
+  @extend %font-regular
+  @extend %padding-regular
   background-color: map-get($color, white)
   text-align: left
 
 html,
 body
-  font-family: map-get($font-family, sans)
-  font-size: map-get($font-sizes, small)
+  @extend %font-sans
+  @extend %font-small
   margin: 0
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
@@ -26,30 +31,29 @@ body
   background-color: var(--color-background)
 
 code
-  font-family: map-get($font-family, mono)
+  @extend %font-mono
 
 ul
-  padding-left: map-get($space, regular)
+  @extend %padding-left-regular
   list-style: none outside none
 
 p,
 li
   text-align: left
-
-h1,
-h2,
-h3,
-h4,
-p
-  margin-top: map-get($space, regular)
-  margin-bottom: map-get($space, regular)
+  @extend %margin-vertical-tiny
 
 h1,
 h2,
 h3,
 h4
-  font-weight: normal
-  font-family: map-get($font-family, sans-alt)
+  @extend %margin-vertical-regular
+
+h1,
+h2,
+h3,
+h4
+  @extend %font-normal
+  @extend %font-sans-alt
 
 a,
 a:visited
@@ -57,7 +61,9 @@ a:visited
   color: var(--color-primary)
 
 .copy
-  font-size: map-get($font-sizes, small)
+  @extend %font-big
+  @extend %font-sans-alt
+  line-height: 30px
 
 .float-right
   float: right
