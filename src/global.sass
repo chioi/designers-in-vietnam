@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400")
 @import "style/variables"
 @import "style/mixins/space"
 @import "style/mixins/typography"
@@ -30,8 +30,11 @@ code
 
 ul
   padding-left: map-get($space, regular)
-  list-style-position: outside
-  list-style: none
+  list-style: none outside none
+
+p,
+li
+  text-align: left
 
 h1,
 h2,
