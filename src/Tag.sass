@@ -2,10 +2,10 @@
 @import "style/mixins/space"
 @import "style/mixins/typography"
 @import "style/mixins/color"
-@include padding-placeholders($space)
-@include fonts($font-sizes)
 @include colors($color)
-@include weights($font-weight)
+@include padding-placeholders($space)
+@include font-size-placeholders($font-sizes)
+@include font-weight-placeholders($font-weights)
 
 .tag
   @extend %font-tiny

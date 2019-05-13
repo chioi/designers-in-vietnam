@@ -1,20 +1,20 @@
-=headings($font-sizes)
+=headings($sizes)
   $final: 5
   @for $i from 1 through 4
     h#{$i}
-      font-size: $font-sizes[$final - $i]
+      font-size: nth($sizes, $final - $i)
 
-=fonts($font-sizes)
-  @each $size, $stop in $font-sizes
+=font-size-placeholders($sizes)
+  @each $size, $stop in $sizes
     %font-#{$size}
       font-size: $stop
 
-=weights($weights)
+=font-weight-placeholders($weights)
   @each $weight, $stop in $weights
     %font-#{$weight}
       font-weight: $stop
 
-=families($font-families)
-  @each $name, $family in $font-families
+=font-family-placeholders($families)
+  @each $name, $family in $families
     %font-#{$name}
       font-family: $family
